@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import UserList from './container/user_list';
+import UserDetail from './container/user_detail';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-       <h1>Redux .... </h1>
+       <UserList/>
+       <UserDetail/>
       </div>
     );
   }
