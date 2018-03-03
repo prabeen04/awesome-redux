@@ -1,12 +1,6 @@
 import { createStore } from 'redux';
+import { rootReducer } from '../reducers/index';
 
-users = (state = 0, action) => {
-    return [
-        {name: 'prabeen', age: 27},
-        {name: 'pogba', age: 27},
-        {name: 'mata', age: 30},
-        {name: 'degea', age: 26},
-    ]
-}
+const store = createStore(rootReducer);
 
-let store = createStore(users);
+export default store;
