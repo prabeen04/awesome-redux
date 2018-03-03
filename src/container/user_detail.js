@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class UserDetail extends React.Component{
 
@@ -10,4 +11,9 @@ class UserDetail extends React.Component{
         );
     };
 }
-export default UserDetail;
+
+const mapStateToProps = state => {
+    return { users: state.users };
+  };
+  
+export default connect(mapStateToProps)(UserDetail);
