@@ -1,3 +1,8 @@
-const ADD_USER = 'ADD_USER';
-const REMOVE_USER = 'REMOVE_USER';
-const UPDATE_USER = 'UPDATE_USER';
+
+import { ADD_USER, REMOVE_USER, UPDATE_USER} from '../constants/action_types'
+
+export const addUser = (user) => 
+            ({
+                type: ADD_USER,
+                user: user
+            })
