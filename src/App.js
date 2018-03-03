@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addUser }  from './actions/user_action';
 import UserList from './container/user_list';
 import UserDetail from './container/user_detail';
+import AddUser from './container/add_user';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
       <div className="App">
         <UserList/>
         <UserDetail/>
+        <AddUser/>
       </div>
     );
   }
