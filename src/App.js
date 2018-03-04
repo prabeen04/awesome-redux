@@ -6,6 +6,7 @@ import UserList from './container/user_list';
 import UserDetail from './container/user_detail';
 import AddUser from './container/add_user';
 import './App.css';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends Component {
   render() {
