@@ -9,8 +9,10 @@ const initialState = {
     ]
 }
 export const rootReducer = (state = initialState, action) => {
+    console.log('inside rootreducer')
     switch(action.type){
         case 'ADD_USER': 
+        console.log('inside addUser')
           return { ...state, users: [...state.users, action.payload] };
         default :
             return state;
