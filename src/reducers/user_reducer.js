@@ -7,7 +7,7 @@ export const userReducer = function () {
     ]
 }
 
-export const selectedReducer = function (state = 'prabeen', action) {
+export const selectedReducer = function (state = {name: 'prabeen'}, action) {
     switch(action.type){
         case 'SELECTED_USER':
             return action.user

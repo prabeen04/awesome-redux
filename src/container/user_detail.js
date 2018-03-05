@@ -7,13 +7,14 @@ class UserDetail extends React.Component{
         return(
             <div>
                 <h1>UserDetail Component</h1>
+                <p>{this.props.selectedUser.name}</p>
             </div>
         );
     };
 }
 
 const mapStateToProps = state => {
-    return { users: state.users };
+    return { selectedUser: state.selectedUser };
   };
   
 export default connect(mapStateToProps)(UserDetail);
