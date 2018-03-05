@@ -1,4 +1,4 @@
-export default function () {
+export const userReducer = function () {
     return [
         { name: "prabeen" },
         { name: "pogba" },

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Button, Input } from 'semantic-ui-react';
 import { addUser } from '../actions/user_action';
 
@@ -13,17 +14,11 @@ class AddUser extends React.Component{
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleSubmit = (e) => {
-        console.log(e.target.value)
-        let user = {
-            id: 6,
-            name: e.target.value
-        }
-        this.props.addUser(user);
-        console.log('after dispatched')
+    handleSubmit = () => {
+         this.props.addUser(this.state.user);
     }
     handleChange = (e) => {
-        console.log(e.target.value)
+        this.setState({user: e.target.value})
     }
     render(){
         return(
@@ -36,8 +31,6 @@ class AddUser extends React.Component{
     }
 }
 const mapDispatchtoProps = (dispatch) =>{
-    return{
-        addUser: user => dispatch(addUser(user))
-    }
+    return bindActionCreators({addUser: addUser}, dispatch)
 }
 export default connect(null, mapDispatchtoProps)(AddUser);
