@@ -1,19 +1,15 @@
-export const userReducer = function () {
-    fetch('https://prabeen-restapi.herokuapp.com/api/reister')
-    .then(res =>(res => res.json())
-    .then(users =>{
+export const userReducer =  () => {
+    let apiUsers = [];
+    fetch('https://prabeen-restapi.herokuapp.com/api/register')
+    .then(res => res.json())
+    .then(users => {
         console.log(users)
-        return users
+         apiUsers = users
     })
     .catch(err =>{
         console.log(err)
-    })
-    // return [
-    //     { name: "prabeen" },
-    //     { name: "pogba" },
-    //     { name: "mata" },
-    //     { name: "herera" }
-    // ]
+    });
+    return apiUsers;
 }
 
 export const selectedReducer = function (state = {name: 'prabeen'}, action) {
