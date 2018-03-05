@@ -15,7 +15,12 @@ class AddUser extends React.Component{
 
     handleSubmit = (e) => {
         console.log(e.target.value)
-        this.props.addUser(e.target.value);
+        let user = {
+            id: 6,
+            name: e.target.value
+        }
+        this.props.addUser(user);
+        console.log('after dispatched')
     }
     handleChange = (e) => {
         console.log(e.target.value)

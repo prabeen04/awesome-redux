@@ -14,9 +14,12 @@ class UserList extends React.Component{
         return(
             <div>
                 <h1>UserList Component</h1>
-                  {this.props.users.map(user => (
-                       <p>{user.name}</p>
-                   ))}  
+                  {this.props.users
+                      ?this.props.users.map(user => (
+                       <p>{'user.name'}</p>
+                   ))
+                :<p>no users</p>}
+                     
             </div>
         );
     };

@@ -19,8 +19,4 @@ class App extends Component {
     );
   }
 }
-
-window.store = store;
-window.addUser = addUser;
-store.subscribe(() => console.log('Look ma, Redux!!'))
 export default App;
