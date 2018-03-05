@@ -7,3 +7,10 @@ export const userReducer = function () {
     ]
 }
 
+export const selectedReducer = function (state = 'prabeen', action) {
+    switch(action.type){
+        case 'SELECTED_USER':
+            return action.user
+    }
+    return state;
+}
