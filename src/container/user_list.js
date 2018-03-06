@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import { selectedUser } from '../actions/user_action'
 
-const mapStateToProps = state => {
-    return { users: state.users };
-};
-
 class UserList extends React.Component {
     constructor(props) {
         super(props)
@@ -19,8 +15,7 @@ class UserList extends React.Component {
     fetch('https://prabeen-restapi.herokuapp.com/api/register')
     .then(res => res.json())
     .then(users => {
-        console.log(users)
-         apiUsers = users
+       this.props.getUsers(users);
     })
     .catch(err =>{
         console.log(err)
@@ -44,7 +39,11 @@ class UserList extends React.Component {
         );
     };
 }
+const mapStateToProps = state => {
+    return { users: state.users };
+};
+
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ selectedUser: selectedUser }, dispatch)
+    return bindActionCreators({ selectedUser: selectedUser, getUsers: getUsers }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserList);

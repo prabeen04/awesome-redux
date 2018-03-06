@@ -8,6 +8,14 @@ export const addUser = (user) => {
         user: user
     }
 }
+
+export const getUsers = (user) => {
+    console.log(user)
+    return {
+        type: 'GET_ALL_USER',
+        user: user
+    }
+}
 export const selectedUser = (user) => {
     console.log(user)
     return {
