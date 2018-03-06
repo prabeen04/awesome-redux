@@ -6,7 +6,7 @@
 
 // get users on componentDidMount
 export const userReducer = function (state = [], action) {
-    
+
     switch(action.type){
         case 'GET_ALL_USER':
             return [ ...state, ...action.users ]
@@ -21,3 +21,10 @@ export const selectedReducer = function (state = {name: 'prabeen'}, action) {
     }
     return state;
 }
+
+ export const addUserSuccess = (user) => {
+  return {
+    type: 'CREATE_BOOK_SUCCESS',
+    user
+  }
+};
