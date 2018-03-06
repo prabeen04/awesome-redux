@@ -11,25 +11,20 @@ class UserList extends React.Component {
     handleClick = () => {
         console.log('handle clicked ')
     }
-    componentDidMount(){
+    componentDidMount() {
         console.log('inside componentDidMount')
         this.props.getUsers();
     }
     render() {
-        // console.log(users);
+        let renderUsers = this.props.users.map(user => {
+            return <li key={user._id}>{user.username}</li>
+        })
         return (
             <div>
                 <h1>UserList Component</h1>
-                {this.props.users
-                    ? this.props.users.map(user => (
-                        <p key={user.username}
-                            onClick={() => this.props.selectedUser(user)}>
-                            {user.username}
-                        </p>
-                    // ?<p>some users present</p>
-                    ))
-                    : <p>no users</p>}
-
+                <ul>
+                    {renderUsers}
+                </ul>
             </div>
         );
     };
