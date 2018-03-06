@@ -12,31 +12,21 @@ class UserList extends React.Component {
         console.log('handle clicked ')
     }
     componentDidMount(){
-    fetch('https://prabeen-restapi.herokuapp.com/api/register')
-    .then(res => res.json())
-    .then(users => {
-       this.props.getUsers(users);
-    })
-    .catch(err =>{
-        console.log(err)
-    });
+        this
     }
     render() {
         // console.log(users);
         return (
             <div>
                 <h1>UserList Component</h1>
-                if(this.props.users){
-                    console.log(this.props.users)
-                }
-                {this.props.users
-                    // ? this.props.users.map(user => (
-                    //     <button key={user.username}
-                    //         onClick={() => this.props.selectedUser(user)}>
-                    //         {user.username}
-                    //     </button>
-                    ?<p>some users present</p>
-                   // ))
+                {this.props.users.length != 0
+                    ? this.props.users.map(user => (
+                        <button key={user.username}
+                            onClick={() => this.props.selectedUser(user)}>
+                            {user.username}
+                        </button>
+                    // ?<p>some users present</p>
+                    ))
                     : <p>no users</p>}
 
             </div>
