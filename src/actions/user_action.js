@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 // import { ADD_USER } from '../constants/action_types'
 
 export const addUser = (user) => {
@@ -11,12 +11,13 @@ export const addUser = (user) => {
 
 export const getUsers = () => {
     return (dispatch) =>{
-        fetch('https://prabeen-restapi.herokuapp.com/api/register')
-        .then(res =>  res.json() )
+        axios.get('https://prabeen-restapi.herokuapp.com/api/users')
+        // .then(res =>  res.json() )
         .then(users => {
+            console.log(users)
             dispatch({
                 type: 'GET_ALL_USER',
-                users: users
+                users: users.data
             })
         })
         .catch(err =>{

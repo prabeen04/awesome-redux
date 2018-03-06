@@ -18,7 +18,7 @@ class UserList extends React.Component {
     }
     render() {
         let renderUsers = this.props.users.map(user => {
-            return <li key={user._id}>{user.username}</li>
+            return <li key={user._id}>{user.name}</li>
         })
          if(this.props.users.length === 0){
             return <Loader/>
