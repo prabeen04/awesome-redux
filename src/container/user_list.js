@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import { selectedUser } from '../actions/user_action'
+import { selectedUser, getUsers } from '../actions/user_action'
 
 class UserList extends React.Component {
     constructor(props) {
@@ -26,13 +26,17 @@ class UserList extends React.Component {
         return (
             <div>
                 <h1>UserList Component</h1>
+                if(this.props.users){
+                    console.log(this.props.users)
+                }
                 {this.props.users
-                    ? this.props.users.map(user => (
-                        <button key={user.username}
-                            onClick={() => this.props.selectedUser(user)}>
-                            {user.username}
-                        </button>
-                    ))
+                    // ? this.props.users.map(user => (
+                    //     <button key={user.username}
+                    //         onClick={() => this.props.selectedUser(user)}>
+                    //         {user.username}
+                    //     </button>
+                    ?<p>some users present</p>
+                   // ))
                     : <p>no users</p>}
 
             </div>

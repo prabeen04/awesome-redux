@@ -5,10 +5,10 @@
 // }
 
 // get users on componentDidMount
-export const userReducer = function (state = [], action) {
+export const userReducer = function (state = null, action) {
     switch(action.type){
         case 'GET_ALL_USER':
-            return action.users
+            return { ...state, users: action.users }
     }
     return state;
 }
