@@ -22,10 +22,10 @@ class UserList extends React.Component {
                 <h1>UserList Component</h1>
                 {this.props.users
                     ? this.props.users.map(user => (
-                        <button key={user.username}
+                        <p key={user.username}
                             onClick={() => this.props.selectedUser(user)}>
                             {user.username}
-                        </button>
+                        </p>
                     // ?<p>some users present</p>
                     ))
                     : <p>no users</p>}

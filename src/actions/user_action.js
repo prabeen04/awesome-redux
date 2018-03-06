@@ -10,23 +10,16 @@ export const addUser = (user) => {
 }
 
 export const getUsers = () => {
-    console.log('inside getUsers action')
     return (dispatch) =>{
-        console.log('inside fetchapi')
         fetch('https://prabeen-restapi.herokuapp.com/api/register')
-        .then(res => {
-            console.log(res)
-            return res.json()
-        } )
+        .then(res =>  res.json() )
         .then(users => {
-            console.log('inside dispatch action')
             dispatch({
                 type: 'GET_ALL_USER',
                 users: users
             })
         })
         .catch(err =>{
-            console.log('inside catch handler')
             console.log(err.message)
         });
     }
