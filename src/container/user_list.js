@@ -12,14 +12,15 @@ class UserList extends React.Component {
         console.log('handle clicked ')
     }
     componentDidMount(){
-        this
+        console.log('inside componentDidMount')
+        this.props.getUsers();
     }
     render() {
         // console.log(users);
         return (
             <div>
                 <h1>UserList Component</h1>
-                {this.props.users.length != 0
+                {this.props.users
                     ? this.props.users.map(user => (
                         <button key={user.username}
                             onClick={() => this.props.selectedUser(user)}>
