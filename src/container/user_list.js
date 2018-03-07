@@ -41,9 +41,9 @@ class UserList extends React.Component {
 }
 const mapStateToProps = state => {
     return { 
-        users: state.users,
-        isLoading: state.isLoading,
-        noData: state.noData    
+        users: state.users.users,
+        isLoading: state.users.isLoading,
+        noData: state.users.noData    
     };
 };
 

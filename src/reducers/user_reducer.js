@@ -5,11 +5,18 @@
 // }
 
 // get users on componentDidMount
-export const userReducer = function (state = [], action) {
+export const userReducer = function (state = {
+                                    users:[],
+                                    isLoading:false,
+                                    noData: false
+                                }, action) {
     console.log(action)
     switch(action.type){
         case 'GET_ALL_USER':
-            return {users: [...state, ...action.users], isLoading: action.isLoading, noData: action.noData }
+            return {
+                users: [...state, ...action.users],
+                isLoading: action.isLoading,
+                noData: action.noData }
     }
     return state;
 }
