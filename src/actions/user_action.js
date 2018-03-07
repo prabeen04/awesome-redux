@@ -16,6 +16,12 @@ export const addUser = (user) => {
   };
 export const getUsers = () => {
     return (dispatch) =>{
+        dispatch({
+            type: 'GET_ALL_USER',
+            users: [],
+            isLoading: true,
+            noData: false
+        })
         axios.get('https://prabeen-restapi.herokuapp.com/api/users')
         // .then(res =>  res.json() )
         .then(users => {
@@ -29,12 +35,12 @@ export const getUsers = () => {
         })
         .catch(err =>{
             console.log(err.message)
-            // dispatch({
-            //     type: 'GET_ALL_USER',
-            //     isLoading: false,
-            //     noData: true
-
-            // })
+            dispatch({
+                type: 'GET_ALL_USER',
+                users: [],
+                isLoading: false,
+                noData: true
+            })
         });
     }
 }
