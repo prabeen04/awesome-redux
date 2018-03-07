@@ -21,7 +21,12 @@ class UserList extends React.Component {
     render() {
         console.log(this.props)
         let renderUsers = this.props.users.map(user => {
-            return <ListItem primaryText={user.name}  key={user._id} />
+            return <ListItem 
+                    primaryText={user.name} 
+                    key={user._id}
+                    onClick={()=>{
+                        this.props.selectedUser(user)
+                    }} />
 
         })
          if(this.props.isLoading){
