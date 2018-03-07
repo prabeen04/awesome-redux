@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
+import {List, ListItem} from 'material-ui/List';
 import { selectedUser, getUsers } from '../actions/user_action';
 import Loader from '../components/common-components/loader';
 import NoData from '../components/common-components/no-data';
@@ -20,7 +21,8 @@ class UserList extends React.Component {
     render() {
         console.log(this.props)
         let renderUsers = this.props.users.map(user => {
-            return <li key={user._id}>{user.name}</li>
+            return <ListItem primaryText={user.name}  key={user._id} />
+
         })
          if(this.props.isLoading){
             return <Loader/>
@@ -32,9 +34,9 @@ class UserList extends React.Component {
             <div>
                 <h1>UserList Component</h1>
              
-                <ul>
+                <List>
                     {renderUsers}
-                </ul>
+                </List>
             </div>
         );
     };
