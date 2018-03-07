@@ -11,10 +11,13 @@ import 'semantic-ui-css/semantic.min.css';
 class App extends Component {
   render() {
     return (
-      <div className="ui card ">
+      <div className="">
         <UserList/>
+        <hr/>
         <UserDetail/>
+        <hr/>
         <AddUser/>
+        <hr/>
       </div>
     );
   }

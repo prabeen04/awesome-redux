@@ -5,7 +5,12 @@ export const addUser = (user) => {
     return (dispatch) => {
       return axios.post('https://prabeen-restapi.herokuapp.com/api/users', {name: user})
         .then(response => {
-            console.log(response.data)
+            console.log(response.data);
+            dispatch({
+                type: 'ADD_USER_SUCCESS',
+                payload: 'user added'
+            })
+
         })
         .catch(error => {
           throw(error);

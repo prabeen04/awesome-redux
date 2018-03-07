@@ -28,3 +28,10 @@ export const selectedReducer = function (state = {name: 'prabeen'}, action) {
     }
     return state;
 }
+
+export const addUserSuccess = (state, action) => {
+    switch(action.type){
+        case 'ADD_USER_SUCCESS':
+            return state;
+    }
+}
