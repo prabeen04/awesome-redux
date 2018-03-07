@@ -6,7 +6,7 @@ class UserDetail extends React.Component{
     render(){
         return(
             <div>
-                <h1>UserDetail Component</h1>
+                <h1>User Detail</h1>
                 <p>{this.props.selectedUser.name}</p>
             </div>
         );

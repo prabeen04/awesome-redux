@@ -39,7 +39,6 @@ class AddUser extends React.Component{
     render(){
         return(
             <div>
-                <h3>Add User</h3>
                 <TextField
                     floatingLabelText="Enter User Name"
                     floatingLabelStyle={styles.floatingLabelStyle}

@@ -11,7 +11,7 @@ import 'semantic-ui-css/semantic.min.css';
 class App extends Component {
   render() {
     return (
-      <div className="">
+      <div className="flex-container">
         <UserList/>
         <hr/>
         <UserDetail/>

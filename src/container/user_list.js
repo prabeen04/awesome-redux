@@ -2,24 +2,26 @@ import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import {List, ListItem} from 'material-ui/List';
+import Paper from 'material-ui/Paper';
 import { selectedUser, getUsers } from '../actions/user_action';
 import Loader from '../components/common-components/loader';
 import NoData from '../components/common-components/no-data';
 
+const style = {
+    width: 300,
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+  };
 class UserList extends React.Component {
     constructor(props) {
         super(props)
-        this.handleClick = this.handleClick.bind(this);
     }
-    handleClick = () => {
-        console.log('handle clicked ')
-    }
+
     componentDidMount() {
-        console.log('inside componentDidMount')
         this.props.getUsers();
     }
     render() {
-        console.log(this.props)
         let renderUsers = this.props.users.map(user => {
             return <ListItem 
                     primaryText={user.name} 
@@ -37,11 +39,11 @@ class UserList extends React.Component {
         }
         return (
             <div>
-                <h1>UserList Component</h1>
-             
+              <Paper style={style} zDepth={3}>               
                 <List>
                     {renderUsers}
                 </List>
+              </Paper>  
             </div>
         );
     };

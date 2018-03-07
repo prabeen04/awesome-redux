@@ -10,7 +10,6 @@ export const userReducer = function (state = {
                                     isLoading:false,
                                     noData: false
                                 }, action) {
-    console.log(action)
     switch(action.type){
         case 'GET_ALL_USER':
             return {

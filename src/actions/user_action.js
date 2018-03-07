@@ -5,7 +5,6 @@ export const addUser = (user) => {
     return (dispatch) => {
       return axios.post('https://prabeen-restapi.herokuapp.com/api/users', {name: user})
         .then(response => {
-            console.log(response.data);
             dispatch(getUsers())
         })
         .catch(error => {
@@ -24,7 +23,6 @@ export const getUsers = () => {
         axios.get('https://prabeen-restapi.herokuapp.com/api/users')
         // .then(res =>  res.json() )
         .then(users => {
-            console.log(users)
             dispatch({
                 type: 'GET_ALL_USER',
                 users: users.data,
@@ -44,7 +42,6 @@ export const getUsers = () => {
     }
 }
 export const selectedUser = (user) => {
-    console.log(user)
     return {
         type: 'SELECTED_USER',
         user: user
