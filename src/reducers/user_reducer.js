@@ -28,10 +28,3 @@ export const selectedReducer = function (state = {name: 'prabeen'}, action) {
     }
     return state;
 }
-
- export const addUserSuccess = (user) => {
-  return {
-    type: 'CREATE_BOOK_SUCCESS',
-    user
-  }
-};

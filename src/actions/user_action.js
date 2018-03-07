@@ -3,11 +3,9 @@ import axios from 'axios';
 
 export const addUser = (user) => {
     return (dispatch) => {
-      return axios.post('https://prabeen-restapi.herokuapp.com/api/users', user)
+      return axios.post('https://prabeen-restapi.herokuapp.com/api/users', {name: user})
         .then(response => {
-          // Dispatch a synchronous action
-          // to handle data
-          dispatch(addUser(response.data, ))
+            console.log(response.data)
         })
         .catch(error => {
           throw(error);
