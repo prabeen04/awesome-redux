@@ -22,17 +22,19 @@ export const getUsers = () => {
             console.log(users)
             dispatch({
                 type: 'GET_ALL_USER',
-                users: users.data
+                users: users.data,
+                isLoading: false,
+                noData: false
             })
         })
         .catch(err =>{
             console.log(err.message)
-            dispatch({
-                type: 'GET_ALL_USER',
-                isLoading: false,
-                noData: true
+            // dispatch({
+            //     type: 'GET_ALL_USER',
+            //     isLoading: false,
+            //     noData: true
 
-            })
+            // })
         });
     }
 }
