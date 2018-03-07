@@ -33,5 +33,7 @@ export const addUserSuccess = (state, action) => {
     switch(action.type){
         case 'ADD_USER_SUCCESS':
             return state;
+        default: 
+         return state    
     }
 }
