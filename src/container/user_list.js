@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import { selectedUser, getUsers } from '../actions/user_action'
-import Loader from '../components/common-components/loader'
+import { selectedUser, getUsers } from '../actions/user_action';
+import Loader from '../components/common-components/loader';
+import NoData from '../components/common-components/no-data';
 
 class UserList extends React.Component {
     constructor(props) {
@@ -17,11 +18,15 @@ class UserList extends React.Component {
         this.props.getUsers();
     }
     render() {
+        console.log(this.props)
         let renderUsers = this.props.users.map(user => {
             return <li key={user._id}>{user.name}</li>
         })
-         if(this.props.users.length === 0){
+         if(this.props.isLoading){
             return <Loader/>
+        }
+        if(this.props.noData){
+            return <NoData/>
         }
         return (
             <div>
@@ -35,7 +40,11 @@ class UserList extends React.Component {
     };
 }
 const mapStateToProps = state => {
-    return { users: state.users };
+    return { 
+        users: state.users,
+        isLoading: state.isLoading,
+        noData: state.noData    
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -7,7 +7,7 @@ export const addUser = (user) => {
         .then(response => {
           // Dispatch a synchronous action
           // to handle data
-          dispatch(addUser(response.data))
+          dispatch(addUser(response.data, ))
         })
         .catch(error => {
           throw(error);
@@ -27,6 +27,12 @@ export const getUsers = () => {
         })
         .catch(err =>{
             console.log(err.message)
+            dispatch({
+                type: 'GET_ALL_USER',
+                isLoading: false,
+                noData: true
+
+            })
         });
     }
 }

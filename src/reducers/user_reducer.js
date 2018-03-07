@@ -9,7 +9,7 @@ export const userReducer = function (state = [], action) {
 
     switch(action.type){
         case 'GET_ALL_USER':
-            return [ ...state, ...action.users ]
+            return [ ...state, ...action.users, ...action.isLoding, ...action.noData  ]
     }
     return state;
 }
