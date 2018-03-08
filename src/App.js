@@ -4,6 +4,7 @@ import store from '../src/store/index';
 import { connect } from 'react-redux';
 import { addUser } from './actions/user_action';
 import Navbar from './components/layouts/navbar/navbar';
+import Dashboard from './container/dashboard/dashboard';
 import UserList from './container/user_list';
 import UserDetail from './container/user_detail';
 import AddUser from './container/add_user';
@@ -16,7 +17,7 @@ class App extends Component {
       <div>
         <Navbar style={{ position: 'fixed' }} />
         <Switch>
-          <Route exact path="/" component={UserList} />
+          <Route exact path="/" component={Dashboard} />
           <Route exact path="/settings" component={UserDetail} />
           <Route exact path="/add" component={AddUser} />
           {/* <Route path="*" component={NotFound} /> */}
