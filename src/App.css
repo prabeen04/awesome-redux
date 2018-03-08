@@ -1,5 +1,5 @@
 .dark-background{
-    background:linear-gradient(240deg, rgba(179, 222, 229, 0.233), rgba(43, 67, 78, 0.644));
+    background:linear-gradient(180deg, rgba(179, 222, 229, 0.233), rgba(43, 67, 78, 0.644));
     height: 100vh;
     width: 100%;
 }

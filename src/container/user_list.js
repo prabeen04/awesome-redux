@@ -9,7 +9,8 @@ import NoData from '../components/common-components/no-data';
 
 const style = {
     width: 300,
-    margin: 10
+    margin: 10,
+    textAlign: 'center'
   };
 class UserList extends React.Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class UserList extends React.Component {
             return <ListItem 
                     primaryText={user.name} 
                     key={user._id}
+                    style={{color: '#444'}}
                     onClick={()=>{
                         this.props.selectedUser(user)
                     }} />
@@ -37,11 +39,9 @@ class UserList extends React.Component {
         }
         return (
             <div>
-              <Paper style={style} zDepth={3}>               
-                <List>
+                <List style={style}>
                     {renderUsers}
                 </List>
-              </Paper>  
             </div>
         );
     };

@@ -21,7 +21,7 @@ class Navbar extends React.Component {
             <AppBar
                 className="appbar"
                 title="REDUXXX"
-                titleStyle={{ cursor: 'pointer', color: 'tomato'}}
+                titleStyle={{ cursor: 'pointer', color: '#fff'}}
                 onLeftIconButtonClick={() => this.handleToggle()}
                 onTitleClick={()=> this.props.history.push('/')}
             />
