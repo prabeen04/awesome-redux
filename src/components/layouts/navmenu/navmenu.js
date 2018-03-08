@@ -26,29 +26,21 @@ const style = {
     <div>
       <Paper style={style.paper}>
         <Menu>
-          <MenuItem primaryText="Preview" leftIcon={<RemoveRedEye />} />
-          <MenuItem primaryText="Share" leftIcon={<PersonAdd />} />
-          <MenuItem primaryText="Get links" leftIcon={<ContentLink />} />
-          <Divider />
-          <MenuItem primaryText="Make a copy" leftIcon={<ContentCopy />} />
-          <MenuItem primaryText="Download" leftIcon={<Download />} />
-          <Divider />
-          <MenuItem primaryText="Remove" leftIcon={<Delete />} />
+          <MenuItem primaryText="Dashboard" leftIcon={<RemoveRedEye />} />
+          <MenuItem primaryText="Settings" leftIcon={<PersonAdd />} />
+          <MenuItem primaryText="Lookup" leftIcon={<ContentLink />} />
+          <MenuItem primaryText="Planner" leftIcon={<ContentCopy />} />
+          <MenuItem primaryText="Team" leftIcon={<Download />} />
+          <MenuItem primaryText="Opportunity" leftIcon={<Download />} />
+          <MenuItem primaryText="Team" leftIcon={<Download />} />
         </Menu>
       </Paper>
       <Paper style={style.paper}>
         <Menu>
-          <MenuItem primaryText="Clear Config" />
-          <MenuItem primaryText="New Config" rightIcon={<PersonAdd />} />
-          <MenuItem primaryText="Project" rightIcon={<FontIcon className="material-icons">settings</FontIcon>} />
-          <MenuItem
-            primaryText="Workspace"
-            rightIcon={
-              <FontIcon className="material-icons" style={{color: '#559'}}>settings</FontIcon>
-            }
-          />
-          <MenuItem primaryText="Paragraph" rightIcon={<b style={style.rightIcon}>¶</b>} />
-          <MenuItem primaryText="Section" rightIcon={<b style={style.rightIcon}>§</b>} />
+          <MenuItem primaryText="Dashoard Me" />
+          <MenuItem primaryText="Contacts" rightIcon={<PersonAdd />} />
+          <MenuItem primaryText="Clients" rightIcon={<b style={style.rightIcon}>¶</b>} />
+          <MenuItem primaryText="Profile" rightIcon={<b style={style.rightIcon}>§</b>} />
         </Menu>
       </Paper>
     </div>
