@@ -13,14 +13,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
+        <Navbar style={{position: 'fixed'}}/>
       <div className="flex-container">
         <UserList/>
-        <hr/>
         <UserDetail/>
-        <hr/>
         <AddUser/>
-        <hr/>
       </div>
      </div> 
     );
