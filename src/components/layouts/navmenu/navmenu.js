@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
@@ -22,9 +23,9 @@ const NavMenu = () => (
   <div>
     <Paper style={style.paper}>
       <Menu desktop={false}>
-        <MenuItem style={{color: 'tomato'}} primaryText="Dashboard" leftIcon={<i class="material-icons">dashboard</i>} />
-        <MenuItem primaryText="Settings" leftIcon={<i class="material-icons">settings</i>} />
-        <MenuItem primaryText=" Approvals  &nbsp; &nbsp;" leftIcon={<i class="material-icons">done_all</i>} />
+      <Link to="/"><MenuItem style={{color: 'tomato'}} primaryText="Dashboard" leftIcon={<i class="material-icons">dashboard</i>} /></Link>
+        <Link to="/settings"><MenuItem primaryText="Settings" leftIcon={<i class="material-icons">settings</i>} /></Link>
+        <Link to="/add"><MenuItem primaryText=" Approvals  &nbsp; &nbsp;" leftIcon={<i class="material-icons">done_all</i>} /></Link>
         <MenuItem primaryText="Team" leftIcon={<i class="material-icons">group</i>} />
         <MenuItem primaryText="Payout" leftIcon={<i class="material-icons">credit_card</i>} />
       </Menu>
