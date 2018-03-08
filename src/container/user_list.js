@@ -9,9 +9,7 @@ import NoData from '../components/common-components/no-data';
 
 const style = {
     width: 300,
-    margin: 20,
-    textAlign: 'center',
-    display: 'inline-block',
+    margin: 10
   };
 class UserList extends React.Component {
     constructor(props) {

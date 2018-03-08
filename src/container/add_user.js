@@ -7,7 +7,7 @@ import { addUser } from '../actions/user_action';
 
 const styles = {
     errorStyle: {
-      color: 'toamto',
+      color: 'tomato',
     },
     underlineStyle: {
       borderColor: 'tomato',
