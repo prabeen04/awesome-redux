@@ -16,22 +16,49 @@ const style = {
     display: 'inline-block',
     float: 'left',
     margin: '16px 32px 16px 0',
+  },
+  menuItem: {
+    color: '#666',
+    fontSize: '1rem',
+    padding: 0
   }
 };
 
 const NavMenu = (props) => (
   <div>
-    <Paper style={style.paper}>
-      <Menu desktop={false}>
-        <Link to="/"><MenuItem onClick={props.handleToggle} style={{ color: 'tomato' }} primaryText="Dashboard" leftIcon={<i class="material-icons">dashboard</i>} /></Link>
-        <Link to="/settings"><MenuItem onClick={props.handleToggle} primaryText="Settings" leftIcon={<i class="material-icons">settings</i>} /></Link>
-        <Link to="/approval"><MenuItem onClick={props.handleToggle} primaryText=" Approvals  &nbsp; &nbsp;" leftIcon={<i class="material-icons">done_all</i>} /></Link>
-        <Link to="/team"><MenuItem onClick={props.handleToggle} primaryText="Team" leftIcon={<i class="material-icons">group</i>} /></Link>
-        <Link to="/payout"><MenuItem onClick={props.handleToggle} primaryText="Payout" leftIcon={<i class="material-icons">credit_card</i>} /></Link>
+      <Menu autoWidth={true} menuItemStyle={style.menuItem}>
+        <MenuItem
+          onClick={props.handleToggle}
+          primaryText="Dashboard"
+          leftIcon={<i class="material-icons">dashboard</i>}
+          containerElement={<Link to="/"
+            activeClassName="active" />} />
+        <MenuItem
+          onClick={props.handleToggle}
+          primaryText="Settings"
+          leftIcon={<i class="material-icons">settings</i>}
+          containerElement={<Link to="/settings"
+            activeClassName="active" />} />
+        <MenuItem
+          onClick={props.handleToggle}
+          primaryText=" Approvals  &nbsp; &nbsp;"
+          leftIcon={<i class="material-icons">done_all</i>}
+          containerElement={<Link to="/approvals"
+            activeClassName="active" />} />
+        <MenuItem
+          onClick={props.handleToggle}
+          primaryText="Team"
+          leftIcon={<i class="material-icons">group</i>}
+          containerElement={<Link to="/team"
+            activeClassName="active" />} />
+        <MenuItem
+          onClick={props.handleToggle}
+          primaryText="Payout"
+          leftIcon={<i class="material-icons">credit_card</i>}
+          containerElement={<Link to="/payout"
+            activeClassName="active" />} />
       </Menu>
-    </Paper>
-    <Paper style={style.paper}>
-      <Menu desktop={false}>
+      <Menu menuItemStyle={style.menuItem}>
         <MenuItem onClick={props.handleToggle} primaryText="Dashboard" leftIcon={<i class="material-icons">dashboard</i>} />
         <MenuItem onClick={props.handleToggle} primaryText="Planner" leftIcon={<i class="material-icons">event_note</i>} />
         <MenuItem onClick={props.handleToggle} primaryText="Expense" leftIcon={<i class="material-icons">receipt</i>} />
@@ -42,7 +69,6 @@ const NavMenu = (props) => (
         <MenuItem onClick={props.handleToggle} primaryText="Tracker" leftIcon={<i class="material-icons">track_changes</i>} />
         <MenuItem onClick={props.handleToggle} primaryText="Client" leftIcon={<i class="material-icons">account_box</i>} />
       </Menu>
-    </Paper>
   </div>
 );
 
