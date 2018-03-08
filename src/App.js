@@ -5,6 +5,11 @@ import { connect } from 'react-redux';
 import { addUser } from './actions/user_action';
 import Navbar from './components/layouts/navbar/navbar';
 import Dashboard from './container/dashboard/dashboard';
+import Settings from './container/settings/settings';
+import Approval from './container/approval/approval';
+import Team from './container/team/team';
+import Payout from './container/payout/payout';
+import NotFound from './container/notfound/notfound';
 import UserList from './container/user_list';
 import UserDetail from './container/user_detail';
 import AddUser from './container/add_user';
@@ -18,9 +23,13 @@ class App extends Component {
         <Navbar style={{ position: 'fixed' }} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
-          <Route exact path="/settings" component={UserDetail} />
+          <Route exact path="/settings" component={Settings} />
+          <Route exact path="/approval" component={Approval} />
+          <Route exact path="/team" component={Team} />
+          <Route exact path="/payout" component={Payout} />
           <Route exact path="/add" component={AddUser} />
-          {/* <Route path="*" component={NotFound} /> */}
+          <Route exact path="/users" component={UserList} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </div>
     );
