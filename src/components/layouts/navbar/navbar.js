@@ -6,7 +6,9 @@ import MenuItem from 'material-ui/MenuItem';
 class Navbar extends React.Component{
     constructor(props){
         super(props);
-        this.state = {open: true};
+        this.state = {open: false};
+        this.handleClose = this.handleClose.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
     }
     handleClose = () => this.setState({open: false});
     handleToggle = () => this.setState({open: !this.state.open});
@@ -14,6 +16,7 @@ class Navbar extends React.Component{
         return(<div>
              <AppBar
             title="REDUXXX"
+            onLeftIconButtonClick ={ () => this.handleToggle()}
             iconClassNameRight="muidocs-icon-navigation-expand-more"
           />
           {/* Left side Drawer */}
