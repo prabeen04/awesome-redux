@@ -29,7 +29,7 @@ class Navbar extends React.Component {
             >
                 {/* <MenuItem onClick={this.handleClose}>Menu Item</MenuItem>
                 <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem> */}
-                <NavMenu/>
+                <NavMenu handleToggle={this.handleToggle}/>
             </Drawer>
         </div>
 
