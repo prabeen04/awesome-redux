@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter, Link } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
@@ -18,13 +19,16 @@ class Navbar extends React.Component {
         return (<div>
             {/* top appbar */}
             <AppBar
+                className="appbar"
                 title="REDUXXX"
+                titleStyle={{ cursor: 'pointer', color: 'tomato'}}
                 onLeftIconButtonClick={() => this.handleToggle()}
+                onTitleClick={()=> this.props.history.push('/')}
             />
             {/* Left side Drawer */}
             <Drawer
                 docked={false}
-                width={240}
+                width={230}
                 open={this.state.open}
                 onRequestChange={(open) => this.setState({ open })}
             >
@@ -35,4 +39,4 @@ class Navbar extends React.Component {
         );
     }
 }
-export default Navbar;
+export default withRouter(Navbar);

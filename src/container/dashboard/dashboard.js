@@ -9,7 +9,7 @@ class DashBoard extends React.Component{
     }
     render(){
         return(
-            <div className="flex-container">
+            <div className="flex-container dark-background">
                 <UserList/>
                 <UserDetail/>
                 <AddUser/>
