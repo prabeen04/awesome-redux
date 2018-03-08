@@ -23,7 +23,7 @@ class Navbar extends React.Component {
             {/* Left side Drawer */}
             <Drawer
                 docked={false}
-                width={250}
+                width={240}
                 open={this.state.open}
                 onRequestChange={(open) => this.setState({ open })}
             >
