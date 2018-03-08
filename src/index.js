@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -8,8 +9,10 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<Provider store={store}>
-                 <MuiThemeProvider>   
+                 <MuiThemeProvider>  
+                 <Router basename={process.env.PUBLIC_URL}>    
                     <App />
-                    </MuiThemeProvider>   
+                 </Router>   
+                </MuiThemeProvider>   
                 </Provider>, document.getElementById('root'));
 registerServiceWorker();

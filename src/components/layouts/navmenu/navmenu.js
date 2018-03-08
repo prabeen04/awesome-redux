@@ -24,7 +24,7 @@ const NavMenu = () => (
       <Menu desktop={false}>
         <MenuItem style={{color: 'tomato'}} primaryText="Dashboard" leftIcon={<i class="material-icons">dashboard</i>} />
         <MenuItem primaryText="Settings" leftIcon={<i class="material-icons">settings</i>} />
-        <MenuItem primaryText=" Approvals  &nbsp;" leftIcon={<i class="material-icons">done_all</i>} />
+        <MenuItem primaryText=" Approvals  &nbsp; &nbsp;" leftIcon={<i class="material-icons">done_all</i>} />
         <MenuItem primaryText="Team" leftIcon={<i class="material-icons">group</i>} />
         <MenuItem primaryText="Payout" leftIcon={<i class="material-icons">credit_card</i>} />
       </Menu>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import store from '../src/store/index';
 import { connect } from 'react-redux';
-import { addUser }  from './actions/user_action';
+import { addUser } from './actions/user_action';
 import Navbar from './components/layouts/navbar/navbar';
 import UserList from './container/user_list';
 import UserDetail from './container/user_detail';
@@ -13,13 +14,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar style={{position: 'fixed'}}/>
-      <div className="flex-container">
-        <UserList/>
-        <UserDetail/>
-        <AddUser/>
+        <Navbar style={{ position: 'fixed' }} />
+        <Switch>
+          <Route exact path="/" component={UserList} />
+          <Route exact path="/settings" component={UserDetail} />
+          <Route exact path="/add" component={AddUser} />
+          {/* <Route path="*" component={NotFound} /> */}
+        </Switch>
       </div>
-     </div> 
     );
   }
 }
