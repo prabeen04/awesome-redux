@@ -11,40 +11,38 @@ import Download from 'material-ui/svg-icons/file/file-download';
 import Delete from 'material-ui/svg-icons/action/delete';
 import FontIcon from 'material-ui/FontIcon';
 const style = {
-    paper: {
-      display: 'inline-block',
-      float: 'left',
-      margin: '16px 32px 16px 0',
-    },
-    rightIcon: {
-      textAlign: 'center',
-      lineHeight: '24px',
-    },
-  };
-  
-  const NavMenu = () => (
-    <div>
-      <Paper style={style.paper}>
-        <Menu>
-          <MenuItem primaryText="Dashboard" leftIcon={<RemoveRedEye />} />
-          <MenuItem primaryText="Settings" leftIcon={<PersonAdd />} />
-          <MenuItem primaryText="Lookup" leftIcon={<ContentLink />} />
-          <MenuItem primaryText="Planner" leftIcon={<ContentCopy />} />
-          <MenuItem primaryText="Team" leftIcon={<Download />} />
-          <MenuItem primaryText="Opportunity" leftIcon={<Download />} />
-          <MenuItem primaryText="Team" leftIcon={<Download />} />
-        </Menu>
-      </Paper>
-      <Paper style={style.paper}>
-        <Menu>
-          <MenuItem primaryText="Dashoard Me" />
-          <MenuItem primaryText="Contacts" rightIcon={<PersonAdd />} />
-          <MenuItem primaryText="Clients" rightIcon={<b style={style.rightIcon}>¶</b>} />
-          <MenuItem primaryText="Profile" rightIcon={<b style={style.rightIcon}>§</b>} />
-        </Menu>
-      </Paper>
-    </div>
-  );
-  
-  export default NavMenu;
-  
+  paper: {
+    display: 'inline-block',
+    float: 'left',
+    margin: '16px 32px 16px 0',
+  }
+};
+
+const NavMenu = () => (
+  <div>
+    <Paper style={style.paper}>
+      <Menu desktop={false}>
+        <MenuItem style={{color: 'tomato'}} primaryText="Dashboard" leftIcon={<i class="material-icons">dashboard</i>} />
+        <MenuItem primaryText="Settings" leftIcon={<i class="material-icons">settings</i>} />
+        <MenuItem primaryText=" Approvals  &nbsp;" leftIcon={<i class="material-icons">done_all</i>} />
+        <MenuItem primaryText="Team" leftIcon={<i class="material-icons">group</i>} />
+        <MenuItem primaryText="Payout" leftIcon={<i class="material-icons">credit_card</i>} />
+      </Menu>
+    </Paper>
+    <Paper style={style.paper}>
+      <Menu desktop={false}>
+        <MenuItem primaryText="Dashboard" leftIcon={<i class="material-icons">dashboard</i>} />
+        <MenuItem primaryText="Planner" leftIcon={<i class="material-icons">event_note</i>} />
+        <MenuItem primaryText="Expense" leftIcon={<i class="material-icons">receipt</i>} />
+        <MenuItem primaryText="Lookup" leftIcon={<i class="material-icons">compare_arrows</i>} />
+        <MenuItem primaryText="Mileage" leftIcon={<i class="material-icons">subways</i>} />
+        <MenuItem primaryText="Opportunity" leftIcon={<i class="material-icons">pie_chart</i>} />
+        <MenuItem primaryText="Contact" leftIcon={<i class="material-icons">contacts</i>} />
+        <MenuItem primaryText="Tracker" leftIcon={<i class="material-icons">track_changes</i>} />
+        <MenuItem primaryText="Client" leftIcon={<i class="material-icons">account_box</i>} />
+      </Menu>
+    </Paper>
+  </div>
+);
+
+export default NavMenu;
