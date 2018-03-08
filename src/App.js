@@ -27,8 +27,6 @@ class App extends Component {
           <Route exact path="/approval" component={Approval} />
           <Route exact path="/team" component={Team} />
           <Route exact path="/payout" component={Payout} />
-          <Route exact path="/add" component={AddUser} />
-          <Route exact path="/users" component={UserList} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>

@@ -1,4 +1,7 @@
 import React from 'react';
+import UserList from '../user_list';
+import UserDetail from '../user_detail';
+import AddUser from '../add_user';
 
 class DashBoard extends React.Component{
     constructor(props){
@@ -6,8 +9,10 @@ class DashBoard extends React.Component{
     }
     render(){
         return(
-            <div>
-                <h3>Dashboard Component</h3>
+            <div className="flex-container">
+                <UserList/>
+                <UserDetail/>
+                <AddUser/>
             </div>
         );
     }

@@ -13,6 +13,7 @@ class Navbar extends React.Component {
     }
     handleClose = () => this.setState({ open: false });
     handleToggle = () => this.setState({ open: !this.state.open });
+    
     render() {
         return (<div>
             {/* top appbar */}
@@ -27,8 +28,6 @@ class Navbar extends React.Component {
                 open={this.state.open}
                 onRequestChange={(open) => this.setState({ open })}
             >
-                {/* <MenuItem onClick={this.handleClose}>Menu Item</MenuItem>
-                <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem> */}
                 <NavMenu handleToggle={this.handleToggle}/>
             </Drawer>
         </div>
