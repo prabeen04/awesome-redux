@@ -7,16 +7,16 @@ import { addUser } from '../actions/user_action';
 
 const styles = {
     errorStyle: {
-      color: 'tomato',
+      color: 'rgb(43, 67, 78)',
     },
     underlineStyle: {
-      borderColor: 'tomato',
+      borderColor: 'rgb(43, 67, 78)',
     },
     floatingLabelStyle: {
-      color: 'tomato',
+      color: 'rgb(43, 67, 78)',
     },
     floatingLabelFocusStyle: {
-      color: 'tomato',
+      color: 'rgb(43, 67, 78)',
     },
   };
   
