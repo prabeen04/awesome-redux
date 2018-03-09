@@ -1,4 +1,5 @@
 import React from 'react';
+import ContentLoader from '../../components/loaders/content-loader/content_loader';
 
 class Settings extends React.Component{
     constructor(props){
@@ -8,6 +9,9 @@ class Settings extends React.Component{
         return(
             <div>
                 <h3>Settings Component</h3>
+                <div className="test">
+                    <ContentLoader/>
+                </div>
             </div>
         );
     }
