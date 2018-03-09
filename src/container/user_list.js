@@ -5,6 +5,7 @@ import {List, ListItem} from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 import { selectedUser, getUsers } from '../actions/user_action';
 import Loader from '../components/common-components/loader';
+import ContentLoader from '../components/loaders/content-loader/content_loader';
 import NoData from '../components/common-components/no-data';
 
 const style = {
@@ -32,7 +33,7 @@ class UserList extends React.Component {
 
         })
          if(this.props.isLoading){
-            return <Loader/>
+            return <ContentLoader/>
         }
         if(this.props.noData){
             return <NoData/>
