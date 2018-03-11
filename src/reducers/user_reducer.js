@@ -1,17 +1,12 @@
-// export const userReducer =  () => {
-//     let apiUsers = [];
+import { GET_ALL_USER, SELECTED_USER, ADD_USER_SUCCESS } from '../types/user_actiontypes';
 
-//     return apiUsers;
-// }
-
-// get users on componentDidMount
 export const userReducer = function (state = {
                                     users:[],
                                     isLoading:false,
                                     noData: false
                                 }, action) {
     switch(action.type){
-        case 'GET_ALL_USER':
+        case GET_ALL_USER:
             return {
                 users: [...state, ...action.users],
                 isLoading: action.isLoading,
@@ -22,7 +17,7 @@ export const userReducer = function (state = {
 
 export const selectedReducer = function (state = {name: 'prabeen'}, action) {
     switch(action.type){
-        case 'SELECTED_USER':
+        case SELECTED_USER:
             return action.user
     }
     return state;
@@ -30,7 +25,7 @@ export const selectedReducer = function (state = {name: 'prabeen'}, action) {
 
 export const addUserSuccess = (state, action) => {
     switch(action.type){
-        case 'ADD_USER_SUCCESS':
+        case ADD_USER_SUCCESS:
             return state;
         default: 
          return state    
