@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import {List, ListItem} from 'material-ui/List';
 import Paper from 'material-ui/Paper';
+import ActionInfo from 'material-ui/svg-icons/action/info';
 import { selectedUser, getUsers } from '../actions/user_action';
 import Loader from '../components/common-components/loader';
 import ContentLoader from '../components/loaders/content-loader/content_loader';
@@ -29,7 +30,8 @@ class UserList extends React.Component {
                     style={{color: '#444'}}
                     onClick={()=>{
                         this.props.selectedUser(user)
-                    }} />
+                    }} 
+                    rightIcon={<ActionInfo />}/>
 
         })
          if(this.props.isLoading){
