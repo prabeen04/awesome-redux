@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import TextField from 'material-ui/TextField';
 import { Button, Input } from 'semantic-ui-react';
 import { addUser } from '../actions/user_action';
+import {ADD_USER} from '../types/user_actiontypes'
 
 const styles = {
     errorStyle: {
@@ -32,6 +33,7 @@ class AddUser extends React.Component{
 
     handleSubmit = () => {
          this.props.addUser(this.state.user);
+         
     }
     handleChange = (e) => {
         this.setState({user: e.target.value})

@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { GET_ALL_USER, SELECTED_USER } from '../types/user_actiontypes'
+import { ADD_USER, GET_ALL_USER, SELECTED_USER } from '../types/user_actiontypes'
 
-export const addUser = (user) => {
+export const addUser = (user) => {  
     return (dispatch) => {
       return axios.post('https://prabeen-restapi.herokuapp.com/api/users', {name: user})
         .then(response => {
