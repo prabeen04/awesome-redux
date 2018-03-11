@@ -8,6 +8,7 @@ import { selectedUser, getUsers } from '../actions/user_action';
 import Loader from '../components/common-components/loader';
 import ContentLoader from '../components/loaders/content-loader/content_loader';
 import NoData from '../components/common-components/no-data';
+import { Facebook } from 'react-content-loader'
 
 const style = {
     width: 300,
@@ -35,7 +36,7 @@ class UserList extends React.Component {
 
         })
          if(this.props.isLoading){
-            return <ContentLoader/>
+            return <Facebook/>
         }
         if(this.props.noData){
             return <NoData/>

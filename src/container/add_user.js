@@ -32,8 +32,9 @@ class AddUser extends React.Component{
     }
 
     handleSubmit = () => {
+        this.setState({user: ''})
          this.props.addUser(this.state.user);
-         
+
     }
     handleChange = (e) => {
         this.setState({user: e.target.value})
