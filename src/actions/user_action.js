@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import { ADD_USER } from '../constants/action_types'
+import { GET_ALL_USER, SELECTED_USER } from '../types/user_actiontypes'
 
 export const addUser = (user) => {
     return (dispatch) => {
@@ -15,7 +15,7 @@ export const addUser = (user) => {
 export const getUsers = () => {
     return (dispatch) =>{
         dispatch({
-            type: 'GET_ALL_USER',
+            type: GET_ALL_USER,
             users: [],
             isLoading: true,
             noData: false
@@ -24,7 +24,7 @@ export const getUsers = () => {
         // .then(res =>  res.json() )
         .then(users => {
             dispatch({
-                type: 'GET_ALL_USER',
+                type: GET_ALL_USER,
                 users: users.data,
                 isLoading: false,
                 noData: false
@@ -33,7 +33,7 @@ export const getUsers = () => {
         .catch(err =>{
             console.log(err.message)
             dispatch({
-                type: 'GET_ALL_USER',
+                type: GET_ALL_USER,
                 users: [],
                 isLoading: false,
                 noData: true
@@ -43,7 +43,7 @@ export const getUsers = () => {
 }
 export const selectedUser = (user) => {
     return {
-        type: 'SELECTED_USER',
+        type: SELECTED_USER,
         user: user
     }
 }
