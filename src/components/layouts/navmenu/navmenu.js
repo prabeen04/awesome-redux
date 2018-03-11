@@ -34,35 +34,35 @@ const NavMenu = (props) => (
           containerElement={<Link to="/" />} />
         <MenuItem
           onClick={props.handleToggle}
-          primaryText="Settings"
+          primaryText="Set"
           leftIcon={<i className="material-icons">settings</i>}
           containerElement={<Link to="/settings" />} />
         <MenuItem
           onClick={props.handleToggle}
-          primaryText=" Approvals  &nbsp; &nbsp;"
+          primaryText=" App  &nbsp; &nbsp;"
           leftIcon={<i className="material-icons">done_all</i>}
           containerElement={<Link to="/approval" />} />
         <MenuItem
           onClick={props.handleToggle}
-          primaryText="Team"
+          primaryText="Tm"
           leftIcon={<i className="material-icons">group</i>}
           containerElement={<Link to="/team" />} />
         <MenuItem
           onClick={props.handleToggle}
-          primaryText="Payout"
+          primaryText="Pay"
           leftIcon={<i className="material-icons">credit_card</i>}
           containerElement={<Link to="/payout" />} />
       </Menu>
       <Menu menuItemStyle={style.menuItem}>
         <MenuItem onClick={props.handleToggle} primaryText="Dashboard" leftIcon={<i className="material-icons">dashboard</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Planner" leftIcon={<i className="material-icons">event_note</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Expense" leftIcon={<i className="material-icons">receipt</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Lookup" leftIcon={<i className="material-icons">compare_arrows</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Mileage" leftIcon={<i className="material-icons">subways</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Opportunity" leftIcon={<i className="material-icons">pie_chart</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Contact" leftIcon={<i className="material-icons">contacts</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Tracker" leftIcon={<i className="material-icons">track_changes</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Client" leftIcon={<i className="material-icons">account_box</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Pla" leftIcon={<i className="material-icons">event_note</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Ex" leftIcon={<i className="material-icons">receipt</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Lo" leftIcon={<i className="material-icons">compare_arrows</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Mil" leftIcon={<i className="material-icons">subways</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Opp" leftIcon={<i className="material-icons">pie_chart</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Con" leftIcon={<i className="material-icons">contacts</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Tra" leftIcon={<i className="material-icons">track_changes</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Cli" leftIcon={<i className="material-icons">account_box</i>} />
       </Menu>
   </div>
 );
