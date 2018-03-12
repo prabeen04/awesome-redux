@@ -8,6 +8,7 @@ import { selectedUser, getUsers } from '../actions/user_action';
 import Loader from '../components/common-components/loader';
 import ContentLoader from '../components/loaders/content-loader/content_loader';
 import NoData from '../components/common-components/no-data';
+import Button from 'semantic-ui-react';
 
 const style = {
     width: 300,
@@ -24,14 +25,19 @@ class UserList extends React.Component {
     }
     render() {
         let renderUsers = this.props.users.map(user => {
-            return <ListItem 
+            return <div key={user.name}>
+                   <ListItem 
                     primaryText={`${user.name} - ${user.email} - ${user.location}`} 
-                    key={user._id}
                     style={{color: '#444'}}
                     onClick={()=>{
                         this.props.selectedUser(user)
                     }} 
                     rightIcon={<ActionInfo />}/>
+                        <button 
+                        onClick={() => console.log(user._id)}>
+                            del
+                        </button>
+                    </div>
 
         })
          if(this.props.isLoading){
