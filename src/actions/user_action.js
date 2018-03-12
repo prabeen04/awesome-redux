@@ -14,7 +14,7 @@ export const addUser = (user) => {
   };
   export const deleteUser = (_id) => {  
     return (dispatch) => {
-      return axios.delete(`http://localhost:8080/api/users/:${_id}`, {_id})
+      return axios.delete(`http://localhost:8080/api/users/${_id}`, {_id})
         .then(response => {
             console.log(response)
             //dispatch(getUsers())

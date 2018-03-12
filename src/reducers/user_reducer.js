@@ -1,4 +1,4 @@
-import { ADD_USER, GET_ALL_USER, SELECTED_USER, ADD_USER_SUCCESS } from '../types/user_actiontypes';
+import { ADD_USER, GET_ALL_USER, SELECTED_USER, ADD_USER_SUCCESS, DELETE_USER } from '../types/user_actiontypes';
 
 export const userReducer = function (state = {
     users: [],
@@ -18,6 +18,12 @@ export const userReducer = function (state = {
                 isLoading: action.isLoading,
                 noData: action.noData
             }
+        case DELETE_USER:
+            return {
+                users: [...state, ...action.users],
+                isLoading: action.isLoading,
+                noData: action.noData
+            }    
     }
     return state;
 }
