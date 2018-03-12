@@ -33,7 +33,6 @@ class AddUser extends React.Component {
     }
 
     handleSubmit = () => {
-        console.log(this.state.user)
          this.props.addUser(this.state);
 
     }

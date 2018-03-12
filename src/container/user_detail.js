@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import { deleteUser } from '../actions/user_action'
 
 class UserDetail extends React.Component{
 
@@ -10,6 +12,11 @@ class UserDetail extends React.Component{
                 <p className=" appbar">{this.props.selectedUser.name}</p>
                 <p className=" appbar">{this.props.selectedUser.email}</p>
                 <p className=" appbar">{this.props.selectedUser.location || 'No Location Available'}</p>
+                <button onClick={() => {
+                    this.props.deleteUser(this.props.selectedUser._id)
+                }}>
+                 Delete User
+                </button>
             </div>
         );
     };
@@ -18,5 +25,8 @@ class UserDetail extends React.Component{
 const mapStateToProps = state => {
     return { selectedUser: state.selectedUser };
   };
-  
-export default connect(mapStateToProps)(UserDetail);
+
+  const mapDispatchToProps= dispatch=> {
+      return bindActionCreators({deleteUser: deleteUser}, dispatch);
+  }
+export default connect(mapStateToProps, mapDispatchToProps)(UserDetail);

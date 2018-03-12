@@ -27,7 +27,7 @@ class UserList extends React.Component {
         let renderUsers = this.props.users.map(user => {
             return <div key={user.name}>
                    <ListItem 
-                    primaryText={`${user.name} - ${user.email} - ${user.location}`} 
+                    primaryText={`${user.name}`} 
                     style={{color: '#444'}}
                     onClick={()=>{
                         this.props.selectedUser(user)
