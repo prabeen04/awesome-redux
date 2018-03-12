@@ -3,54 +3,54 @@ import './content_loader.css';
 
  const ContentLoader = (props) => {
     return (
-        <div class="timeline-wrapper">
-            <div class="timeline-item">
-                <div class="animated-background facebook">
-                    <div class="background-masker header-top"></div>
-                    <div class="background-masker header-left"></div>
-                    <div class="background-masker header-right"></div>
-                    <div class="background-masker header-bottom"></div>
-                    <div class="background-masker subheader-left"></div>
-                    <div class="background-masker subheader-right"></div>
-                    <div class="background-masker subheader-bottom"></div>
-                    <div class="background-masker content-top"></div>
-                    <div class="background-masker content-first-end"></div>
-                    <div class="background-masker content-second-line"></div>
-                    <div class="background-masker content-second-end"></div>
-                    <div class="background-masker content-third-line"></div>
-                    <div class="background-masker content-third-end"></div>
+        <div className="timeline-wrapper">
+            <div className="timeline-item">
+                <div className="animated-background facebook">
+                    <div className="background-masker header-top"></div>
+                    <div className="background-masker header-left"></div>
+                    <div className="background-masker header-right"></div>
+                    <div className="background-masker header-bottom"></div>
+                    <div className="background-masker subheader-left"></div>
+                    <div className="background-masker subheader-right"></div>
+                    <div className="background-masker subheader-bottom"></div>
+                    <div className="background-masker content-top"></div>
+                    <div className="background-masker content-first-end"></div>
+                    <div className="background-masker content-second-line"></div>
+                    <div className="background-masker content-second-end"></div>
+                    <div className="background-masker content-third-line"></div>
+                    <div className="background-masker content-third-end"></div>
                 </div>
                 <br/>
-                <div class="animated-background facebook">
-                    <div class="background-masker header-top"></div>
-                    <div class="background-masker header-left"></div>
-                    <div class="background-masker header-right"></div>
-                    <div class="background-masker header-bottom"></div>
-                    <div class="background-masker subheader-left"></div>
-                    <div class="background-masker subheader-right"></div>
-                    <div class="background-masker subheader-bottom"></div>
-                    <div class="background-masker content-top"></div>
-                    <div class="background-masker content-first-end"></div>
-                    <div class="background-masker content-second-line"></div>
-                    <div class="background-masker content-second-end"></div>
-                    <div class="background-masker content-third-line"></div>
-                    <div class="background-masker content-third-end"></div>
+                <div className="animated-background facebook">
+                    <div className="background-masker header-top"></div>
+                    <div className="background-masker header-left"></div>
+                    <div className="background-masker header-right"></div>
+                    <div className="background-masker header-bottom"></div>
+                    <div className="background-masker subheader-left"></div>
+                    <div className="background-masker subheader-right"></div>
+                    <div className="background-masker subheader-bottom"></div>
+                    <div className="background-masker content-top"></div>
+                    <div className="background-masker content-first-end"></div>
+                    <div className="background-masker content-second-line"></div>
+                    <div className="background-masker content-second-end"></div>
+                    <div className="background-masker content-third-line"></div>
+                    <div className="background-masker content-third-end"></div>
                 </div>
                 <br/>
-                <div class="animated-background facebook">
-                    <div class="background-masker header-top"></div>
-                    <div class="background-masker header-left"></div>
-                    <div class="background-masker header-right"></div>
-                    <div class="background-masker header-bottom"></div>
-                    <div class="background-masker subheader-left"></div>
-                    <div class="background-masker subheader-right"></div>
-                    <div class="background-masker subheader-bottom"></div>
-                    <div class="background-masker content-top"></div>
-                    <div class="background-masker content-first-end"></div>
-                    <div class="background-masker content-second-line"></div>
-                    <div class="background-masker content-second-end"></div>
-                    <div class="background-masker content-third-line"></div>
-                    <div class="background-masker content-third-end"></div>
+                <div className="animated-background facebook">
+                    <div className="background-masker header-top"></div>
+                    <div className="background-masker header-left"></div>
+                    <div className="background-masker header-right"></div>
+                    <div className="background-masker header-bottom"></div>
+                    <div className="background-masker subheader-left"></div>
+                    <div className="background-masker subheader-right"></div>
+                    <div className="background-masker subheader-bottom"></div>
+                    <div className="background-masker content-top"></div>
+                    <div className="background-masker content-first-end"></div>
+                    <div className="background-masker content-second-line"></div>
+                    <div className="background-masker content-second-end"></div>
+                    <div className="background-masker content-third-line"></div>
+                    <div className="background-masker content-third-end"></div>
                 </div>
             </div>
         </div>

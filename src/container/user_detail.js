@@ -9,7 +9,7 @@ class UserDetail extends React.Component{
                 <h1>User Detail</h1>
                 <p className=" appbar">{this.props.selectedUser.name}</p>
                 <p className=" appbar">{this.props.selectedUser.email}</p>
-                <p className=" appbar">{this.props.selectedUser.location}</p>
+                <p className=" appbar">{this.props.selectedUser.location || 'No Location Available'}</p>
             </div>
         );
     };
