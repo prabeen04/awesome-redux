@@ -1,11 +1,23 @@
 import axios from 'axios';
-import { ADD_USER, GET_ALL_USER, SELECTED_USER } from '../types/user_actiontypes'
+import { ADD_USER, GET_ALL_USER, SELECTED_USER, DELETE_USER } from '../types/user_actiontypes'
 
 export const addUser = (user) => {  
     return (dispatch) => {
       return axios.post('http://localhost:8080/api/users', {...user})
         .then(response => {
             dispatch(getUsers())
+        })
+        .catch(error => {
+          throw(error);
+        });
+    };
+  };
+  export const deleteUser = (_id) => {  
+    return (dispatch) => {
+      return axios.delete(`http://localhost:8080/api/users/:${_id}`, {_id})
+        .then(response => {
+            console.log(response)
+            //dispatch(getUsers())
         })
         .catch(error => {
           throw(error);
