@@ -4,56 +4,72 @@ import { bindActionCreators } from 'redux';
 import TextField from 'material-ui/TextField';
 import { Button, Input } from 'semantic-ui-react';
 import { addUser } from '../actions/user_action';
-import {ADD_USER} from '../types/user_actiontypes'
+import { ADD_USER } from '../types/user_actiontypes'
 
 const styles = {
     errorStyle: {
-      color: 'rgb(43, 67, 78)',
+        color: 'rgb(43, 67, 78)',
     },
     underlineStyle: {
-      borderColor: 'rgb(43, 67, 78)',
+        borderColor: 'rgb(43, 67, 78)',
     },
     floatingLabelStyle: {
-      color: 'rgb(43, 67, 78)',
+        color: 'rgb(43, 67, 78)',
     },
     floatingLabelFocusStyle: {
-      color: 'rgb(43, 67, 78)',
+        color: 'rgb(43, 67, 78)',
     },
-  };
-  
-class AddUser extends React.Component{
-    constructor(props){
+};
+
+class AddUser extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            user: ''
+            user: {
+                name: '',
+                email: '',
+                location: ''
+            }
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleSubmit = () => {
-        this.setState({user: ''})
-         this.props.addUser(this.state.user);
+        this.setState({ user: '' })
+        this.props.addUser(this.state.user);
 
     }
     handleChange = (e) => {
-        this.setState({user: e.target.value})
+        this.setState({ user: e.target.value })
     }
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <TextField
                     floatingLabelText="Enter User Name"
                     floatingLabelStyle={styles.floatingLabelStyle}
                     floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                     onChange={this.handleChange}
-                    />
-               <button className="ui primary button"onClick={this.handleSubmit}>Add User</button> 
+                />
+                <TextField
+                    floatingLabelText="Enter Email"
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                    onChange={this.handleChange}
+                />
+                <TextField
+                    floatingLabelText="Enter Location"
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                    onChange={this.handleChange}
+                />
+                <button className="ui primary button" onClick={this.handleSubmit}>Add User</button>
             </div>
         );
     }
 }
-const mapDispatchtoProps = (dispatch) =>{
-    return bindActionCreators({addUser: addUser}, dispatch)
+const mapDispatchtoProps = (dispatch) => {
+    return bindActionCreators({ addUser: addUser }, dispatch)
 }
 export default connect(null, mapDispatchtoProps)(AddUser);

@@ -3,7 +3,7 @@ import { ADD_USER, GET_ALL_USER, SELECTED_USER } from '../types/user_actiontypes
 
 export const addUser = (user) => {  
     return (dispatch) => {
-      return axios.post('https://prabeen-restapi.herokuapp.com/api/users', {name: user})
+      return axios.post('http://localhost:8080/api/users', {name: user})
         .then(response => {
             dispatch(getUsers())
         })
@@ -20,7 +20,7 @@ export const getUsers = () => {
             isLoading: true,
             noData: false
         })
-        axios.get('https://prabeen-restapi.herokuapp.com/api/users')
+        axios.get('http://localhost:8080/api/users')
         // .then(res =>  res.json() )
         .then(users => {
             dispatch({
