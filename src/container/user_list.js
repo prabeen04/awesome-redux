@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import {List, ListItem} from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 import ActionInfo from 'material-ui/svg-icons/action/info';
-import { selectedUser, getUsers } from '../actions/user_action';
+import { selectedUser, getUsers, deleteUser } from '../actions/user_action';
 import Loader from '../components/common-components/loader';
 import ContentLoader from '../components/loaders/content-loader/content_loader';
 import NoData from '../components/common-components/no-data';
@@ -34,7 +34,7 @@ class UserList extends React.Component {
                     }} 
                     rightIcon={<ActionInfo />}/>
                         <button 
-                        onClick={() => console.log(user._id)}>
+                        onClick={() => this.props.deleteUser(user._id)}>
                             del
                         </button>
                     </div>
@@ -64,6 +64,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ selectedUser: selectedUser, getUsers: getUsers }, dispatch)
+    return bindActionCreators({ selectedUser: selectedUser,
+                                getUsers: getUsers,
+                                deleteUser: deleteUser },
+                             dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserList);
