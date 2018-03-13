@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_USER, GET_ALL_USER, SELECTED_USER, DELETE_USER } from '../types/user_actiontypes'
+import { ADD_USER, GET_ALL_USER, SELECTED_USER, DELETE_USER } from '../constants/user_actiontypes'
 
 export const addUser = (user) => {  
     return (dispatch) => {

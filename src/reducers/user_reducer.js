@@ -1,4 +1,4 @@
-import { ADD_USER, GET_ALL_USER, SELECTED_USER, ADD_USER_SUCCESS, DELETE_USER } from '../types/user_actiontypes';
+import { ADD_USER, GET_ALL_USER, SELECTED_USER, ADD_USER_SUCCESS, DELETE_USER } from '../constants/user_actiontypes';
 
 export const userReducer = function (state = {
     users: [],
