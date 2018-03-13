@@ -35,18 +35,9 @@ class AddUser extends React.Component {
     handleSubmit = () => {
          this.props.addUser(this.state);
         console.log('after submittin')
-        this.setState({
-            name: '',
-            email: '',
-            location: ''
-        })
+        this.setState({name: '', email: '', location: ''})
     }
-    componentDidMount(){
-        console.log('component did mount')
-    }
-    componentWillReceiveProps(){
-        console.log('component will receive props')
-    }
+
     render() {
         return (
             <div>
@@ -54,24 +45,27 @@ class AddUser extends React.Component {
                     floatingLabelText="Enter User Name"
                     floatingLabelStyle={styles.floatingLabelStyle}
                     floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                    value={this.state.name}
                     onChange={(e) => {
-                        this.setState({'name': e.target.value})
+                        this.setState({name: e.target.value})
                     }}
                 />
                 <TextField
                     floatingLabelText="Enter Email"
                     floatingLabelStyle={styles.floatingLabelStyle}
                     floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                    value={this.state.email}
                     onChange={(e) => {
-                        this.setState({'email': e.target.value})
+                        this.setState({email: e.target.value})
                     }}
                 />
                 <TextField
                     floatingLabelText="Enter Location"
                     floatingLabelStyle={styles.floatingLabelStyle}
                     floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                    value={this.state.location}
                     onChange={(e) => {
-                        this.setState({'location': e.target.value})
+                        this.setState({location: e.target.value})
                     }}
                 />
                 <button className="ui primary button" onClick={this.handleSubmit}>Add User</button>
