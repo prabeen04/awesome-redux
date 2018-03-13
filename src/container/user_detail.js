@@ -18,9 +18,9 @@ class UserDetail extends React.Component{
                  Edit User
                 </button>
                 <button onClick={() => {
-                    this.props.editUser(this.props.selectedUser._id)
+                    this.props.editUser(this.props.selectedUser._id )
                 }}>
-                 Delete User
+                 Delete Userss
                 </button>
             </div>
         );
