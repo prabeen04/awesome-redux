@@ -12,15 +12,24 @@ class Payout extends React.Component{
         this.props.getPosts();
     }
     render(){
+        // let renderposts =  this.props.posts.map(post => {
+        //     // return <div key={post._id}><h3>{post.title}</h3> </div>
+        //     return <p>test</p>
+        // })
         return(
             <div className="flex-container">
-                {/* <ContentLoader/> */}
+          {     this.props.posts.map(post => {
+            return <div key={post._id}><h3>{post.title}</h3> </div>
+            // return <p>test</p>
+        })}
             </div>
         );
     }
 }
 const mapStateToProps = state =>{
-    return {posts: state.posts}
+    return {
+        posts: state.posts
+    }
 }
 const mapDispatchToProps = dispatch =>{
     return bindActionCreators({getPosts: getPosts}, dispatch)

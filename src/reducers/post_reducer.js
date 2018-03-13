@@ -3,9 +3,10 @@ import {
 } from '../constants/posts_actiontypes';
 
 export const postReducer = (state=[], action) => {
-    switch (action.payload){
+    console.log(action.payload)
+    switch (action.type){
         case GET_POSTS:
-        return [...state, action.payload ]
+        return [...state, ...action.payload ]
     }
     return state;
 }
