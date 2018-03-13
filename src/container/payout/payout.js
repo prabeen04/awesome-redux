@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
 
 class Payout extends React.Component{
@@ -7,12 +9,16 @@ class Payout extends React.Component{
     }
     render(){
         return(
-            <div>
-                <h3>Payout Component</h3>
-                <ContentLoader/>
+            <div className="flex-container">
+                {/* <ContentLoader/> */}
             </div>
         );
     }
 }
-
-export default Payout;
+const mapStateToProps = state =>{
+    return {posts: state.posts}
+}
+const mapDispatchToProps = dispatch =>{
+   // return bindActionCreators({viewPost: viewPost}, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Payout);
