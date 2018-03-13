@@ -33,10 +33,6 @@ class UserList extends React.Component {
                         this.props.selectedUser(user)
                     }} 
                     rightIcon={<ActionInfo />}/>
-                        <button 
-                        onClick={() => this.props.deleteUser(user._id)}>
-                            del
-                        </button>
                     </div>
 
         })

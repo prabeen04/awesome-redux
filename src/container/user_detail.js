@@ -15,6 +15,11 @@ class UserDetail extends React.Component{
                 <button onClick={() => {
                     this.props.deleteUser(this.props.selectedUser._id)
                 }}>
+                 Edit User
+                </button>
+                <button onClick={() => {
+                    this.props.editUser(this.props.selectedUser._id)
+                }}>
                  Delete User
                 </button>
             </div>
