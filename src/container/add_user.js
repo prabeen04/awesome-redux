@@ -34,9 +34,19 @@ class AddUser extends React.Component {
 
     handleSubmit = () => {
          this.props.addUser(this.state);
-
+        console.log('after submittin')
+        this.setState({
+            name: '',
+            email: '',
+            location: ''
+        })
     }
-
+    componentDidMount(){
+        console.log('component did mount')
+    }
+    componentWillReceiveProps(){
+        console.log('component will receive props')
+    }
     render() {
         return (
             <div>
