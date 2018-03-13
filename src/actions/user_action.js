@@ -23,6 +23,17 @@ export const addUser = (user) => {
         });
     };
   };
+  export const editUser = (_id, payload) => {  
+    return (dispatch) => {
+      return axios.put(`http://localhost:8080/api/users/${_id}`, {payload})
+        .then(response => {
+            dispatch(getUsers())
+        })
+        .catch(error => {
+          throw(error);
+        });
+    };
+  };  
 export const getUsers = () => {
     return (dispatch) =>{
         dispatch({
