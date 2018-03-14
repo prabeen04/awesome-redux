@@ -3,7 +3,7 @@ import { ADD_USER, GET_ALL_USER, SELECTED_USER, DELETE_USER } from '../constants
 
 export const addUser = (user) => {  
     return (dispatch) => {
-      return axios.post('http://localhost:8080/api/users', {...user})
+      return axios.post('https://prabeen-restapi.herokuapp.com/api/users', {...user})
         .then(response => {
             dispatch(getUsers())
         })
@@ -14,7 +14,7 @@ export const addUser = (user) => {
   };
   export const deleteUser = (_id) => {  
     return (dispatch) => {
-      return axios.delete(`http://localhost:8080/api/users/${_id}`, {_id})
+      return axios.delete(`https://prabeen-restapi.herokuapp.com/api/users/${_id}`, {_id})
         .then(response => {
             dispatch(getUsers())
         })
@@ -25,7 +25,7 @@ export const addUser = (user) => {
   };
   export const editUser = (_id, payload) => {  
     return (dispatch) => {
-      return axios.put(`http://localhost:8080/api/users/${_id}`, {payload})
+      return axios.put(`https://prabeen-restapi.herokuapp.com/api/users/${_id}`, {payload})
         .then(response => {
             dispatch(getUsers())
         })
@@ -42,7 +42,7 @@ export const getUsers = () => {
             isLoading: true,
             noData: false
         })
-        axios.get('http://localhost:8080/api/users')
+        axios.get('https://prabeen-restapi.herokuapp.com/api/users')
         // .then(res =>  res.json() )
         .then(users => {
             dispatch({
