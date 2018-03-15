@@ -4,6 +4,10 @@ import UserDetail from '../user_detail';
 import AddUser from '../add_user';
 import LineChart from '../../utility/chartjs/line_chart';
 import BarChart from '../../utility/chartjs/bar_chart';
+import PieChart from '../../utility/chartjs/pie_chart';
+import PolarChart from '../../utility/chartjs/polar_chart';
+import RadarChart from '../../utility/chartjs/radar_chart';
+import DoughnutChart from '../../utility/chartjs/doughnut_chart';
 class DashBoard extends React.Component {
     constructor(props) {
         super(props)
@@ -51,16 +55,16 @@ class DashBoard extends React.Component {
                         <BarChart />
                     </div>
                     <div className="flex-container chart-box">
-                        <h3>CHART COMPONENT</h3>
+                        <DoughnutChart/>
                     </div>
                     <div className="flex-container chart-box">
-                        <h3>CHART COMPONENT</h3>
+                        <PieChart/>
                     </div>
                     <div className="flex-container chart-box">
-                        <h3>CHART COMPONENT</h3>
+                        <PolarChart/>
                     </div>
                     <div className="flex-container chart-box">
-                        <h3>CHART COMPONENT</h3>
+                        <RadarChart/>
                     </div>
                 </div>
 

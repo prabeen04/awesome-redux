@@ -26,8 +26,8 @@ class BarChart extends Component{
           <div>
             <Bar
               data={data}
-              width={350}
-              height={180}
+              width={520}
+              height={230}
               options={{
                 // maintainAspectRatio: false
               }}
