@@ -5,10 +5,35 @@ import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import Checkbox from 'material-ui/Checkbox';
 import SelectField from 'material-ui/SelectField'
 import DatePicker from 'material-ui/DatePicker';
+import FontIcon from 'material-ui/FontIcon';
+import IconButton from 'material-ui/IconButton';
+import AddCircle from 'material-ui/svg-icons/content/add-circle';
+import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
 const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
-
+const styles = {  
+    smallIcon: {
+        width: 36,
+        height: 36,
+        color: 'red'
+      },
+    largeIcon: {
+      width: 60,
+      height: 60,
+      color: 'teal'
+    },
+    small: {
+        width: 72,
+        height: 72,
+        padding: 16,
+      },
+    large: {
+        width: 120,
+        height: 120,
+        padding: 30,
+      },
+  };
 class Expense extends Component {
     constructor(props) {
         super(props)
@@ -32,6 +57,8 @@ class Expense extends Component {
             <DatePicker 
                 errorText = {touched && error} 
                 {...input}
+                hintText="Checkin Date" 
+                autoOk={true}
                 value = {input.value !== ''? new Date(input.value) : null}
                 onChange = {(event, value) => {console.log(value); input.onChange(value)}} />
         )
@@ -76,9 +103,13 @@ class Expense extends Component {
         const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
             <ul>
                 <li>
-                    <button type="button" onClick={() => fields.push({})}>
-                        Add Member
-                </button>
+                <IconButton 
+                iconStyle={styles.largeIcon}
+                style={styles.large}
+                onClick={() => fields.push({})}
+                tooltip="Add Fields">
+                    <AddCircle />
+                </IconButton>
                     {submitFailed && error && <span>{error}</span>}
                 </li>
                 {fields.map((member, index) => (
@@ -130,6 +161,13 @@ class Expense extends Component {
                             type="file"
                             component={renderField}
                         />
+                        <IconButton 
+                        iconStyle={styles.smallIcon}
+                        style={styles.small}
+                        onClick={() => fields.remove(index)}
+                        tooltip="Remove Fields">
+                            <Delete />
+                        </IconButton>
                    <button type="button" onClick={() => fields.remove(index)}>del</button>
 
                     </li>
