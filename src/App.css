@@ -19,12 +19,27 @@
 .jumpstart-box{
     width: 180px;
     height: 80px;
-    padding: 1rem;
+    padding: 0.2rem;
     margin: 0.5rem;
     background:linear-gradient(10deg, rgba(10, 173, 78, 0.699), rgba(5, 114, 96, 0.774));
     color: #fff;
     border-radius: 0.3rem;
     box-shadow: 0px 0px 10px 1px #aaa;
+    transition: all 0.5s ease-in-out;
+}
+.jumpstart-box:hover{
+    box-shadow: 0px 0px 5px 2px rgb(54, 53, 53);
+}
+.jumpstart-box>h2{
+    margin: 0;
+    color: rgb(224, 212, 212);
+}
+.jumpstart-box>h3{
+    margin: 0;
+    color: rgb(182, 210, 223);
+}
+.jumpstart-box>h4{
+    margin: 0;
 }
 .chart-box{
     width: 380px;
