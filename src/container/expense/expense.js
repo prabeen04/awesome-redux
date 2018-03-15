@@ -11,8 +11,12 @@ import AddCircle from 'material-ui/svg-icons/content/add-circle';
 import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
+import './expense.css'
 const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
 const styles = {  
+    fieldWidth: {
+        width: 150
+    },
     smallIcon: {
         width: 36,
         height: 36,
@@ -59,6 +63,8 @@ class Expense extends Component {
                 {...input}
                 hintText="Checkin Date" 
                 autoOk={true}
+                style={{width: 100}}
+                className="test"
                 value = {input.value !== ''? new Date(input.value) : null}
                 onChange = {(event, value) => {console.log(value); input.onChange(value)}} />
         )
@@ -101,7 +107,7 @@ class Expense extends Component {
           )
         
         const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
-            <div className="flex-container appbar">
+            <div className="flex-container">
                 <div className="flex-container">
                 <IconButton 
                 iconStyle={styles.largeIcon}
@@ -113,25 +119,29 @@ class Expense extends Component {
                     {submitFailed && error && <span>{error}</span>}
                 </div>
                 {fields.map((member, index) => (
-                    <div className="flex-container" key={index}>
-                        <h4>Member #{index + 1}</h4>
+                    <div className="flex-container my-card" key={index}>
+                        {/* <h4>Member #{index + 1}</h4> */}
                         <Field
                             name={`${member}.expense_type`}
                             component={renderSelectField}
                             label="Expense Types"
+                            style={styles.fieldWidth}
                             >
                              <MenuItem value="ff0000" primaryText="CellPhone" />
                             <MenuItem value="00ff00" primaryText="Travell" />
                             <MenuItem value="0000ff" primaryText="Hotel" />
                             </Field>
+                        
                         <Field
                             name={`${member}.expense_date`}
                             component={renderDatePicker}
+                            
                         />
                         <Field
                             name={`${member}.client_types`}
                             component={renderSelectField}
                             label="Client Types"
+                            style={styles.fieldWidth}
                         >
                          <MenuItem value="ff0000" primaryText="Prabeen" />
                         <MenuItem value="00ff00" primaryText="Anil" />
@@ -142,29 +152,34 @@ class Expense extends Component {
                             type="text"
                             component={renderField}
                             label="Description"
+                            style={styles.fieldWidth}
                         />
                         <Field
                             name={`${member}.expense_amount`}
                             type="text"
                             component={renderField}
                             label="Expense Amout"
+                            style={styles.fieldWidth}
                         />
                         <Field
                             name={`${member}.expense_currency`}
                             type="text"
                             component={renderField}
                             label="Expense Currency"
+                            style={styles.fieldWidth}
                         />
                          <Field
                             name={`${member}.adjusted_amout`}
                             type="text"
                             component={renderField}
                             label="Adjusted Amout"
+                            style={styles.fieldWidth}
                         />
                          <Field
                             name={`${member}.reciept`}
                             type="file"
                             component={renderField}
+                            style={styles.fieldWidth}
                         />
                         <IconButton 
                         iconStyle={styles.smallIcon}

@@ -8,11 +8,34 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: center;
+    align-items:center;
 }
 .active{
     color: blue;
 }
 .appbar{
     background: linear-gradient(120deg, rgb(8, 151, 177), rgb(43, 67, 78));
+}
+.jumpstart-box{
+    width: 180px;
+    height: 80px;
+    padding: 1rem;
+    margin: 0.5rem;
+    background:linear-gradient(10deg, rgba(10, 173, 78, 0.699), rgba(5, 114, 96, 0.774));
+    color: #fff;
+    border-radius: 0.3rem;
+    box-shadow: 0px 0px 10px 1px #aaa;
+}
+.chart-box{
+    width: 380px;
+    height: 200px;
+    padding: 1rem;
+    margin: 0.5rem;
+    background:#fff;
+    border-radius: 0.3rem;
+    box-shadow: 0px 0px 10px 1px #aaa;
+}
+.light-background{
+    background: #f4f4f4;
+    height: 100vh;
 }
