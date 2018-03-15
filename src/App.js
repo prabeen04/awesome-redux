@@ -9,6 +9,7 @@ import Settings from './container/settings/settings';
 import Approval from './container/approval/approval';
 import Team from './container/team/team';
 import Payout from './container/payout/payout';
+import Expense from './container/expense/expense';
 import NotFound from './container/notfound/notfound';
 import UserList from './container/user_list';
 import UserDetail from './container/user_detail';
@@ -27,6 +28,7 @@ class App extends Component {
           <Route exact path="/approval" component={Approval} />
           <Route exact path="/team" component={Team} />
           <Route exact path="/payout" component={Payout} />
+          <Route exact path="/expense" component={Expense} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
