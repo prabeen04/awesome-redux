@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
+const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
 
 class Expense extends Component {
     constructor(props) {
@@ -18,33 +19,21 @@ class Expense extends Component {
                 </div>
             </div>
         )
-    
-        const renderHobbies = ({ fields, meta: { error } }) => (
-            <ul>
-                <li>
-                    <button type="button" onClick={() => fields.push()}>
-                        Add Hobby
-                </button>
-                </li>
-                {fields.map((hobby, index) => (
-                    <li key={index}>
-                        <button
-                            type="button"
-                            title="Remove Hobby"
-                            onClick={() => fields.remove(index)}
-                        />
-                        <Field
-                            name={hobby}
-                            type="text"
-                            component={renderField}
-                            label={`Hobby #${index + 1}`}
-                        />
-                    </li>
+        const renderExpenseSelector = ({ input, meta: { touched, error } }) => (
+            <div>
+              <select {...input}>
+                <option value="">Select a color...</option>
+                {colors.map(val => (
+                  <option value={val} key={val}>
+                    {val}
+                  </option>
                 ))}
-                {error && <li className="error">{error}</li>}
-            </ul>
-        )
-    
+              </select>
+              {touched && error && <span>{error}</span>}
+            </div>
+          )
+        
+        
         const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
             <ul>
                 <li>
@@ -55,25 +44,36 @@ class Expense extends Component {
                 </li>
                 {fields.map((member, index) => (
                     <li key={index}>
-                        <button
-                            type="button"
-                            title="Remove Member"
-                            onClick={() => fields.remove(index)}
-                        />
+                        <button type="button" onClick={() => fields.remove(index)}>Remove Member</button>
                         <h4>Member #{index + 1}</h4>
                         <Field
-                            name={`${member}.firstName`}
+                            name={`${member}.expense_type`}
+                            component={renderExpenseSelector}
+                        />
+                        <Field
+                            name={`${member}.expense_date`}
+                            type="date"
+                            component={renderField}
+                            label="Expense Date"
+                        />
+                        <Field
+                            name={`${member}.expense_type`}
                             type="text"
                             component={renderField}
                             label="First Name"
                         />
                         <Field
-                            name={`${member}.lastName`}
+                            name={`${member}.expense_type`}
+                            type="text"
+                            component={renderField}
+                            label="First Name"
+                        />
+                        <Field
+                            name={`${member}.expense_date`}
                             type="text"
                             component={renderField}
                             label="Last Name"
                         />
-                        <FieldArray name={`${member}.hobbies`} component={renderHobbies} />
                     </li>
                 ))}
             </ul>
@@ -118,25 +118,6 @@ const validate = values => {
           memberErrors.lastName = 'Required'
           membersArrayErrors[memberIndex] = memberErrors
         }
-        if (member && member.hobbies && member.hobbies.length) {
-          const hobbyArrayErrors = []
-          member.hobbies.forEach((hobby, hobbyIndex) => {
-            if (!hobby || !hobby.length) {
-              hobbyArrayErrors[hobbyIndex] = 'Required'
-            }
-          })
-          if (hobbyArrayErrors.length) {
-            memberErrors.hobbies = hobbyArrayErrors
-            membersArrayErrors[memberIndex] = memberErrors
-          }
-          if (member.hobbies.length > 5) {
-            if (!memberErrors.hobbies) {
-              memberErrors.hobbies = []
-            }
-            memberErrors.hobbies._error = 'No more than five hobbies allowed'
-            membersArrayErrors[memberIndex] = memberErrors
-          }
-        }
       })
       if (membersArrayErrors.length) {
         errors.members = membersArrayErrors
@@ -145,10 +126,8 @@ const validate = values => {
     return errors
   }
   
-  export default validate
 
 export default reduxForm({
     form: 'expenseForm',
     validate
-
 })(Expense);
