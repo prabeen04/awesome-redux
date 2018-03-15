@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
-import TextField from 'material-ui/TextField'
-import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
-import Checkbox from 'material-ui/Checkbox'
+import TextField from 'material-ui/TextField';
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+import Checkbox from 'material-ui/Checkbox';
 import SelectField from 'material-ui/SelectField'
+import DatePicker from 'material-ui/DatePicker';
 import MenuItem from 'material-ui/MenuItem'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
 const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
@@ -16,7 +17,6 @@ class Expense extends Component {
 
     render() {
         const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
-            <div>
                 <div>
                 <TextField
                     hintText={label}
@@ -27,8 +27,15 @@ class Expense extends Component {
                 />
                     {touched && error && <span>{error}</span>}
                 </div>
-            </div>
         )
+        const renderDatePicker = ({ input, defaultValue, meta: { touched, error } }) => (
+            <DatePicker 
+                errorText = {touched && error} 
+                {...input}
+                value = {input.value !== ''? new Date(input.value) : null}
+                onChange = {(event, value) => {console.log(value); input.onChange(value)}} />
+        )
+          
         const renderExpenseType = ({ input, meta: { touched, error } }) => (
             <div>
               <select {...input}>
@@ -41,6 +48,16 @@ class Expense extends Component {
               </select>
               {touched && error && <span>{error}</span>}
             </div>
+          )
+          const renderSelectField = ({input, label, meta: { touched, error }, children, ...custom }) => (
+            <SelectField
+              floatingLabelText={label}
+              errorText={touched && error}
+              {...input}
+              onChange={(event, index, value) => input.onChange(value)}
+              children={children}
+              {...custom}
+            />
           )
           const renderClients = ({ input, meta: { touched, error } }) => (
             <div>
@@ -73,14 +90,17 @@ class Expense extends Component {
                         />
                         <Field
                             name={`${member}.expense_date`}
-                            type="date"
-                            component={renderField}
-                            label="Expense Date"
+                            component={renderDatePicker}
                         />
                         <Field
                             name={`${member}.client_types`}
-                            component={renderClients}
-                        />
+                            component={renderSelectField}
+                            label="Client Types"
+                        >
+                         <MenuItem value="ff0000" primaryText="Red" />
+                        <MenuItem value="00ff00" primaryText="Green" />
+                        <MenuItem value="0000ff" primaryText="Blue" />
+                        </Field>
                         <Field
                             name={`${member}.description`}
                             type="text"
