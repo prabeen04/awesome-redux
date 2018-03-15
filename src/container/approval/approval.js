@@ -252,6 +252,97 @@ const styles = {
       calcium: '14%',
       iron: '1%',
     },
+    {
+        name: 'Frozen yogurt',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: 'Ice cream sandwich',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: 'Eclair',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: 'Cupcake',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: 'Gingerbread',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: 'Jelly bean',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: 'Lollipop',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: 'Honeycomb',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: 'Donut',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }, {
+        name: ',jbbjbj',
+        calories: '159',
+        fat: '6.0',
+        carbs: '24',
+        protein: '4.0',
+        sodium: '87',
+        calcium: '14%',
+        iron: '1%',
+      }
   ];
   
   const TABLE_DATA_NEXT = [
@@ -267,8 +358,8 @@ const styles = {
     },
   ];
 class Approval extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor(props, context) {
+        super(props, context)
    
         this.handleSortOrderChange = this.handleSortOrderChange.bind(this);
         this.handleFilterValueChange = this.handleFilterValueChange.bind(this);
@@ -334,18 +425,24 @@ class Approval extends React.Component {
             <div>
                 <DataTables
                     title={'Approvals'}
+                    titleStyle={styles.titleStyle}
                     height={'auto'}
-                    selectable={false}
+                    selectable={true}
                     showRowHover={true}
                     columns={TABLE_COLUMNS}
                     data={TABLE_DATA}
                     showCheckboxes={true}
                     showHeaderToolbar={true}
+                    footerToolbarStyle={styles.footerToolbarStyle}
+                    page={this.state.page}
+                    multiSelectable={true}
+                    onRowSelection={this.handleRowSelection}
+                    onNextPageClick={this.handleNextPageClick}
+                    onPreviousPageClick={this.handlePreviousPageClick}
                     onCellClick={this.handleCellClick}
                     onCellDoubleClick={this.handleCellDoubleClick}
                     onFilterValueChange={this.handleFilterValueChange}
                     onSortOrderChange={this.handleSortOrderChange}
-                    page={1}
                     count={100}
                 />
             </div>
