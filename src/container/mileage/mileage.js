@@ -12,7 +12,7 @@ import AddCircle from 'material-ui/svg-icons/content/add-circle';
 import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
-import './expense.css'
+import './mileage.css'
 const styles = {
     underLine:{
         borderColor: '#4f8bea',
@@ -42,7 +42,7 @@ const styles = {
         padding: 30,
     },
 };
-class Expense extends Component {
+class Mileage extends Component {
     constructor(props) {
         super(props)
     }
@@ -65,7 +65,7 @@ class Expense extends Component {
             <DatePicker
                 errorText={touched && error}
                 {...input}
-                floatingLabelText="Expense Date"
+                floatingLabelText="mileage Date"
                 autoOk={true}
                 textFieldStyle={{ width: 120 }}
                 underlineStyle={styles.underLine}
@@ -90,11 +90,11 @@ class Expense extends Component {
                 {fields.map((member, index) => (
                     <div className="flex-container my-card" key={index}>
                         {/* <h4>Member #{index + 1}</h4> */}
-                        <div className="expense-flex">
+                        <div className="mileage-flex">
                             <Field
-                                name={`${member}.expense_type`}
+                                name={`${member}client`}
                                 component={renderSelectField}
-                                label="Expense Types"
+                                label="Client"
                                 style={styles.fieldWidth}
                             >
                                 <MenuItem value="ff0000" primaryText="CellPhone" />
@@ -102,67 +102,56 @@ class Expense extends Component {
                                 <MenuItem value="0000ff" primaryText="Hotel" />
                             </Field>
                         </div>
-                        <div className="expense-flex">
+                        <div className="mileage-flex">
                             <Field
-                                name={`${member}.expense_date`}
+                                name={`${member}.mileage_date`}
                                 component={renderDatePicker}
                                 style={styles.fieldWidth}
 
                             />
                         </div>
-                        <div className="expense-flex">
+                       
+                        <div className="mileage-flex">
                             <Field
-                                name={`${member}.client_types`}
-                                component={renderSelectField}
-                                label="Client Types"
-                                style={styles.fieldWidth}
-                            >
-                                <MenuItem value="ff0000" primaryText="Prabeen" />
-                                <MenuItem value="00ff00" primaryText="Anil" />
-                                <MenuItem value="0000ff" primaryText="Lipsa" />
-                            </Field>
-                        </div>
-                        <div className="expense-flex">
-                            <Field
-                                name={`${member}.description`}
+                                name={`${member}from`}
                                 type="text"
                                 component={renderField}
-                                label="Description"
+                                label="From"
                                 style={styles.fieldWidth}
                             />
                         </div>
-                        <div className="expense-flex">
+                        <div className="mileage-flex">
                             <Field
-                                name={`${member}.expense_amount`}
+                                name={`${member}to`}
                                 type="text"
                                 component={renderField}
-                                label="Expense Amout"
+                                label="To"
                                 style={styles.fieldWidth}
                             />
                         </div>
-                        <div className="expense-flex">
+                        <div className="mileage-flex">
                             <Field
-                                name={`${member}.expense_currency`}
+                                name={`${member}distance`}
                                 type="text"
                                 component={renderField}
-                                label="Expense Currency"
+                                label="Distance"
                                 style={styles.fieldWidth}
                             />
                         </div>
-                        <div className="expense-flex">
+                        <div className="mileage-flex">
                             <Field
-                                name={`${member}.adjusted_amout`}
+                                name={`${member}remark`}
                                 type="text"
                                 component={renderField}
-                                label="Adjusted Amout"
+                                label="Remark"
                                 style={styles.fieldWidth}
                             />
                         </div>
-                        <div className="expense-flex">
+                        <div className="mileage-flex">
                             <Field
-                                name={`${member}.reciept`}
+                                name={`${member}mileage-rate`}
                                 component={renderField}
-                                label="Receipt"
+                                label="Mileage rate €/km"
                                 style={styles.fieldWidth}
                             />
                         </div>
@@ -240,6 +229,6 @@ const validate = values => {
 
 
 export default reduxForm({
-    form: 'expenseForm',
+    form: 'mileageForm',
     validate
-})(Expense);
+})(Mileage);

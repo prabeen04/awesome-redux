@@ -10,6 +10,7 @@ import Approval from './container/approval/approval';
 import Team from './container/team/team';
 import Payout from './container/payout/payout';
 import Expense from './container/expense/expense';
+import Mileage from './container/mileage/mileage';
 import NotFound from './container/notfound/notfound';
 import UserList from './container/user_list';
 import UserDetail from './container/user_detail';
@@ -29,6 +30,7 @@ class App extends Component {
           <Route exact path="/team" component={Team} />
           <Route exact path="/payout" component={Payout} />
           <Route exact path="/expense" component={Expense} />
+          <Route exact path="/mileage" component={Mileage} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
