@@ -1,5 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
+import TextField from 'material-ui/TextField'
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
+import Checkbox from 'material-ui/Checkbox'
+import SelectField from 'material-ui/SelectField'
+import MenuItem from 'material-ui/MenuItem'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
 const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
 
@@ -10,16 +15,21 @@ class Expense extends Component {
  
 
     render() {
-        const renderField = ({ input, label, type, meta: { touched, error } }) => (
+        const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
             <div>
-                <label>{label}</label>
                 <div>
-                    <input {...input} type={type} placeholder={label} />
+                <TextField
+                    hintText={label}
+                    floatingLabelText={label}
+                    errorText={touched && error}
+                    {...input}
+                    {...custom}
+                />
                     {touched && error && <span>{error}</span>}
                 </div>
             </div>
         )
-        const renderExpenseSelector = ({ input, meta: { touched, error } }) => (
+        const renderExpenseType = ({ input, meta: { touched, error } }) => (
             <div>
               <select {...input}>
                 <option value="">Select a color...</option>
@@ -32,7 +42,19 @@ class Expense extends Component {
               {touched && error && <span>{error}</span>}
             </div>
           )
-        
+          const renderClients = ({ input, meta: { touched, error } }) => (
+            <div>
+              <select {...input}>
+                <option value="">Select a Client...</option>
+                {colors.map(val => (
+                  <option value={val} key={val}>
+                    {val}
+                  </option>
+                ))}
+              </select>
+              {touched && error && <span>{error}</span>}
+            </div>
+          )
         
         const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
             <ul>
@@ -44,11 +66,10 @@ class Expense extends Component {
                 </li>
                 {fields.map((member, index) => (
                     <li key={index}>
-                        <button type="button" onClick={() => fields.remove(index)}>Remove Member</button>
                         <h4>Member #{index + 1}</h4>
                         <Field
                             name={`${member}.expense_type`}
-                            component={renderExpenseSelector}
+                            component={renderExpenseType}
                         />
                         <Field
                             name={`${member}.expense_date`}
@@ -57,23 +78,40 @@ class Expense extends Component {
                             label="Expense Date"
                         />
                         <Field
-                            name={`${member}.expense_type`}
-                            type="text"
-                            component={renderField}
-                            label="First Name"
+                            name={`${member}.client_types`}
+                            component={renderClients}
                         />
                         <Field
-                            name={`${member}.expense_type`}
+                            name={`${member}.description`}
                             type="text"
                             component={renderField}
-                            label="First Name"
+                            label="Description"
                         />
                         <Field
-                            name={`${member}.expense_date`}
+                            name={`${member}.expense_amount`}
                             type="text"
                             component={renderField}
-                            label="Last Name"
+                            label="Expense Amout"
                         />
+                        <Field
+                            name={`${member}.expense_currency`}
+                            type="text"
+                            component={renderField}
+                            label="Expense Currency"
+                        />
+                         <Field
+                            name={`${member}.adjusted_amout`}
+                            type="text"
+                            component={renderField}
+                            label="Adjusted Amout"
+                        />
+                         <Field
+                            name={`${member}.reciept`}
+                            type="file"
+                            component={renderField}
+                        />
+                   <button type="button" onClick={() => fields.remove(index)}>del</button>
+
                     </li>
                 ))}
             </ul>
