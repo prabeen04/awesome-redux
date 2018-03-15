@@ -101,8 +101,8 @@ class Expense extends Component {
           )
         
         const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
-            <ul>
-                <li>
+            <div className="flex-container appbar">
+                <div className="flex-container">
                 <IconButton 
                 iconStyle={styles.largeIcon}
                 style={styles.large}
@@ -111,14 +111,19 @@ class Expense extends Component {
                     <AddCircle />
                 </IconButton>
                     {submitFailed && error && <span>{error}</span>}
-                </li>
+                </div>
                 {fields.map((member, index) => (
-                    <li key={index}>
+                    <div className="flex-container" key={index}>
                         <h4>Member #{index + 1}</h4>
                         <Field
                             name={`${member}.expense_type`}
-                            component={renderExpenseType}
-                        />
+                            component={renderSelectField}
+                            label="Expense Types"
+                            >
+                             <MenuItem value="ff0000" primaryText="CellPhone" />
+                            <MenuItem value="00ff00" primaryText="Travell" />
+                            <MenuItem value="0000ff" primaryText="Hotel" />
+                            </Field>
                         <Field
                             name={`${member}.expense_date`}
                             component={renderDatePicker}
@@ -128,9 +133,9 @@ class Expense extends Component {
                             component={renderSelectField}
                             label="Client Types"
                         >
-                         <MenuItem value="ff0000" primaryText="Red" />
-                        <MenuItem value="00ff00" primaryText="Green" />
-                        <MenuItem value="0000ff" primaryText="Blue" />
+                         <MenuItem value="ff0000" primaryText="Prabeen" />
+                        <MenuItem value="00ff00" primaryText="Anil" />
+                        <MenuItem value="0000ff" primaryText="Lipsa" />
                         </Field>
                         <Field
                             name={`${member}.description`}
@@ -168,11 +173,9 @@ class Expense extends Component {
                         tooltip="Remove Fields">
                             <Delete />
                         </IconButton>
-                   <button type="button" onClick={() => fields.remove(index)}>del</button>
-
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         )
         const { handleSubmit, pristine, reset, submitting } = this.props
         return (
