@@ -7,6 +7,9 @@
 }
 .my-card{
     /* border: 1px solid #ddd; */
-    margin-bottom: 2rem;
+    margin-top: 2rem;
     padding: 0 1rem;
+}
+.form-row-height{
+    height: 50px;
 }
