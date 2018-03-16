@@ -12,7 +12,18 @@ import AddCircle from 'material-ui/svg-icons/content/add-circle';
 import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
+import { Input } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
 import './expense.css'
+
+const stateOptions = [ 
+     { key: 'prabeen', value: 'prabeen', text: 'Prabeen' },
+     { key: 'pogba', value: 'pogba', text: 'Pogba' },
+     { key: 'mata', value: 'mata', text: 'Mata' },
+     { key: 'rashford', value: 'rashford', text: 'Rashford' },
+     { key: 'martial', value: 'martial', text: 'Martial' },
+     { key: 'degea', value: 'degea', text: 'De Gea' }
+    ]
 const styles = {
     underLine:{
         borderColor: '#4f8bea',
@@ -49,12 +60,22 @@ class Expense extends Component {
 
 
     render() {
+        // const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
+        //     <div>
+        //         <TextField
+        //             floatingLabelText={label}
+        //             underlineStyle={styles.underLine}
+        //             errorText={touched && error}
+        //             {...input}
+        //             {...custom}
+        //         />
+        //         {touched && error && <span>{error}</span>}
+        //     </div>
+        // )
         const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
             <div>
-                <TextField
-                    floatingLabelText={label}
-                    underlineStyle={styles.underLine}
-                    errorText={touched && error}
+                <Input
+                   placeholder={label}
                     {...input}
                     {...custom}
                 />
@@ -73,14 +94,26 @@ class Expense extends Component {
                 onChange={(event, value) => { console.log(value); input.onChange(value) }} />
         )
 
+        // const renderSelectField = ({ input, label, meta: { touched, error }, children, ...custom }) => (
+        //     <SelectField
+        //         floatingLabelText={label}
+        //         underlineStyle={styles.underLine}
+        //         errorText={touched && error}
+        //         {...input}
+        //         onChange={(event, index, value) => input.onChange(value)}
+        //         children={children}
+        //         {...custom}
+        //     />
+        // )
+
         const renderSelectField = ({ input, label, meta: { touched, error }, children, ...custom }) => (
-            <SelectField
-                floatingLabelText={label}
-                underlineStyle={styles.underLine}
-                errorText={touched && error}
+            <Dropdown
+                placeholder={label}
                 {...input}
+                search selection 
+                options={stateOptions}
+                value={stateOptions.value}
                 onChange={(event, index, value) => input.onChange(value)}
-                children={children}
                 {...custom}
             />
         )
