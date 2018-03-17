@@ -7,6 +7,7 @@ import store from './store/index';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(<Provider store={store}>
                  <MuiThemeProvider>  

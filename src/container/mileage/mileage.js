@@ -14,13 +14,6 @@ import MenuItem from 'material-ui/MenuItem'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
 import './mileage.css'
 const styles = {
-    underLine:{
-        borderColor: '#4f8bea',
-        borderWidth: 2
-    },
-    fieldWidth: {
-        width: 140
-    },
     smallIcon: {
         width: 36,
         height: 36,

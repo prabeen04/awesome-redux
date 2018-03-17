@@ -18,8 +18,17 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import './expense.css'
+import { Button } from 'reactstrap';
 
-const stateOptions = [
+const stateOptions1 = [
+    { key: 'prabeen', value: 'prabeen', text: 'Prabeen' },
+    { key: 'pogba', value: 'pogba', text: 'Pogba' },
+    { key: 'mata', value: 'mata', text: 'Mata' },
+    { key: 'rashford', value: 'rashford', text: 'Rashford' },
+    { key: 'martial', value: 'martial', text: 'Martial' },
+    { key: 'degea', value: 'degea', text: 'De Gea' }
+]
+const stateOptions2 = [
     { key: 'prabeen', value: 'prabeen', text: 'Prabeen' },
     { key: 'pogba', value: 'pogba', text: 'Pogba' },
     { key: 'mata', value: 'mata', text: 'Mata' },
@@ -28,13 +37,6 @@ const stateOptions = [
     { key: 'degea', value: 'degea', text: 'De Gea' }
 ]
 const styles = {
-    underLine: {
-        borderColor: '#4f8bea',
-        borderWidth: 2
-    },
-    fieldWidth: {
-        width: 140
-    },
     smallIcon: {
         width: 36,
         height: 36,
@@ -71,13 +73,16 @@ class Expense extends Component {
         });
     }
 
-
+    onSubmit(values){
+        console.log(values)
+    }
     render() {
 
         const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
             <div>
                 <Input
                     placeholder={label}
+                    className="semantic-input"
                     {...input}
                     {...custom}
                 />
@@ -85,22 +90,38 @@ class Expense extends Component {
             </div>
         )
 
-        const renderDatePicker = ({ input, defaultValue, meta: { touched, error } }) => (
-            <DatePicker
-                {...input}
-                selected={this.state.startDate}
-                onSelect={this.handleSelect}
-                onChange={this.handleChange}
-            />
-        )
+        // const renderDatePicker = ({ input, defaultValue, meta: { touched, error } }) => (
+        //     <DatePicker
+        //         className="semantic-input"
+        //         {...input}
+        //         selected={this.state.startDate}
+        //         onSelect={this.handleSelect}
+        //         onChange={this.handleChange}
+        //     />
+        // )
 
-        const renderSelectField = ({ input, label, meta: { touched, error }, children, ...custom }) => (
+        const renderSelectField1 = ({ input, label, meta: { touched, error }, children, ...custom }) => (
             <Dropdown
                 placeholder={label}
+                className="semantic-input"
                 {...input}
+                fluid={true}
                 search selection
-                options={stateOptions}
-                value={stateOptions.value}
+                options={stateOptions1}
+                value={stateOptions1.value}
+                onChange={(event, index, value) => input.onChange(value)}
+                {...custom}
+            />
+        )
+        const renderSelectField2 = ({ input, label, meta: { touched, error }, children, ...custom }) => (
+            <Dropdown
+                placeholder={label}
+                className="semantic-input"
+                {...input}
+                fluid={true}
+                search selection
+                options={stateOptions2}
+                value={stateOptions2.value}
                 onChange={(event, index, value) => input.onChange(value)}
                 {...custom}
             />
@@ -112,16 +133,17 @@ class Expense extends Component {
                     <div className="flex-container form-row-height" key={index}>
                         {/* <h4>Member #{index + 1}</h4> */}
                         <div className="expense-flex">
-                            <Field name={`${member}.expense_type`} component={renderSelectField} label="Expense Types" />
+                            <Field name={`${member}.expense_type`} component={renderSelectField1} label="Expense Types" />
                         </div>
-                        {/* <div className="expense-flex">
+                        <div className="expense-flex">
                             <Field
                                 name={`${member}.expense_date`}
-                                component={renderDatePicker}
+                                component="input"
+                                type="date"
                             />
-                        </div> */}
+                        </div>
                         <div className="expense-flex">
-                            <Field name={`${member}.client_types`} component={renderSelectField} label="Client Types" />
+                            <Field name={`${member}.client_types`} component={renderSelectField1} label="Client Types" />
                         </div>
                         <div className="expense-flex">
                             <Field name={`${member}.description`} type="text" component={renderField} label="Description" />
@@ -136,7 +158,7 @@ class Expense extends Component {
                             <Field name={`${member}.adjusted_amout`} type="text" component={renderField} label="Adjusted Amout" />
                         </div>
                         <div className="expense-flex">
-                            <Field name={`${member}.reciept`} component={renderField} label="Receipt" />
+                            <Field name={`${member}.reciept`} type="text" component={renderField} label="Receipt" />
                         </div>
 
                         <IconButton
@@ -160,14 +182,17 @@ class Expense extends Component {
                 </div>
             </div>
         )
-        const { handleSubmit, pristine, reset, submitting } = this.props
+        const { handleSubmit, pristine, reset, submitting } = this.props;
+
         return (
             <div className="my-card">
-                <form onSubmit={handleSubmit}>
+                <form>
                     <FieldArray name="members" component={renderMembers} />
                     <div>
-                        <RaisedButton label="Submit" primary={true} disabled={submitting} style={{ margin: 12 }} />
+                        <RaisedButton label="Submit" primary={true} disabled={submitting} style={{ margin: 12 }}
+                         onClick={handleSubmit(this.onSubmit.bind(this))} />
                         <RaisedButton label="Reset" secondary={true} disabled={pristine || submitting} style={{ margin: 12 }} onClick={reset} />
+                        <Button>Bootstrap Button</Button>
                     </div>
                 </form>
             </div>
