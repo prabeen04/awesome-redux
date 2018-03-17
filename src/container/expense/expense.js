@@ -13,12 +13,12 @@ import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
 import { Input } from 'semantic-ui-react'
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown, Select } from 'semantic-ui-react'
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import './expense.css'
-import { Button } from 'reactstrap';
+import { Button, Input as BootInput } from 'reactstrap';
 
 const stateOptions1 = [
     { key: 'prabeen', value: 'prabeen', text: 'Prabeen' },
@@ -73,8 +73,9 @@ class Expense extends Component {
         });
     }
 
-    onSubmit(values){
+    onSubmit(values) {
         console.log(values)
+        alert(values)
     }
     render() {
 
@@ -110,22 +111,11 @@ class Expense extends Component {
                 options={stateOptions1}
                 value={stateOptions1.value}
                 onChange={(event, index, value) => input.onChange(value)}
+                onBlur={(event, index, value) => input.onBlur(value)}
                 {...custom}
             />
         )
-        const renderSelectField2 = ({ input, label, meta: { touched, error }, children, ...custom }) => (
-            <Dropdown
-                placeholder={label}
-                className="semantic-input"
-                {...input}
-                fluid={true}
-                search selection
-                options={stateOptions2}
-                value={stateOptions2.value}
-                onChange={(event, index, value) => input.onChange(value)}
-                {...custom}
-            />
-        )
+
         const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
             <div className="">
 
@@ -133,17 +123,38 @@ class Expense extends Component {
                     <div className="flex-container form-row-height" key={index}>
                         {/* <h4>Member #{index + 1}</h4> */}
                         <div className="expense-flex">
-                            <Field name={`${member}.expense_type`} component={renderSelectField1} label="Expense Types" />
+                            <Field
+                                name={`${member}.expense_types`}
+                                component="select"
+                                label="Clients"
+                                className="form-control">
+                                <option value="cellphone">cellphone</option>
+                                <option value="travell">travell</option>
+                                <option value="hotel">hotel</option>
+                                <option value="food">food</option>
+                                <option value="others">others</option>
+                            </Field>
                         </div>
                         <div className="expense-flex">
                             <Field
                                 name={`${member}.expense_date`}
                                 component="input"
                                 type="date"
+                                className="form-control"
                             />
                         </div>
                         <div className="expense-flex">
-                            <Field name={`${member}.client_types`} component={renderSelectField1} label="Client Types" />
+                            <Field
+                                name={`${member}.client_types`}
+                                component="select"
+                                label="Clients"
+                                className="form-control">
+                                <option value="Lindelof">Lindelof</option>
+                                <option value="baily">baily</option>
+                                <option value="jones">jones</option>
+                                <option value="rojo">rojo</option>
+                                <option value="sanchez">sanchez</option>
+                            </Field>
                         </div>
                         <div className="expense-flex">
                             <Field name={`${member}.description`} type="text" component={renderField} label="Description" />
@@ -190,7 +201,7 @@ class Expense extends Component {
                     <FieldArray name="members" component={renderMembers} />
                     <div>
                         <RaisedButton label="Submit" primary={true} disabled={submitting} style={{ margin: 12 }}
-                         onClick={handleSubmit(this.onSubmit.bind(this))} />
+                            onClick={handleSubmit(this.onSubmit.bind(this))} />
                         <RaisedButton label="Reset" secondary={true} disabled={pristine || submitting} style={{ margin: 12 }} onClick={reset} />
                         <Button>Bootstrap Button</Button>
                     </div>
