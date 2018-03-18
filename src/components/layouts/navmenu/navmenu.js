@@ -32,24 +32,7 @@ const NavMenu = (props) => (
           primaryText="Dashboard"
           leftIcon={<i className="material-icons">dashboard</i>}
           containerElement={<Link to="/" />} />
-        <MenuItem onClick={props.handleToggle} primaryText="Dashboard" leftIcon={<i className="material-icons">dashboard</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Pla" leftIcon={<i className="material-icons">event_note</i>} />
-        <MenuItem 
-          onClick={props.handleToggle} 
-          primaryText="Ex" 
-          leftIcon={<i className="material-icons">receipt</i>}
-          containerElement={<Link to="/expense" />} />
-
-        <MenuItem onClick={props.handleToggle} primaryText="Lo" leftIcon={<i className="material-icons">compare_arrows</i>} />
-        <MenuItem 
-          onClick={props.handleToggle} 
-          primaryText="Mil" 
-          leftIcon={<i className="material-icons">subways</i>} 
-          containerElement={<Link to="/mileage" />}/>
-        <MenuItem onClick={props.handleToggle} primaryText="Opp" leftIcon={<i className="material-icons">pie_chart</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Con" leftIcon={<i className="material-icons">contacts</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Tra" leftIcon={<i className="material-icons">track_changes</i>} />
-        <MenuItem onClick={props.handleToggle} primaryText="Cli" leftIcon={<i className="material-icons">account_box</i>} />
+        <MenuItem onClick={props.handleToggle} primaryText="Posts" leftIcon={<i className="material-icons">account_box</i>} />
       </Menu>
   </div>
 );
