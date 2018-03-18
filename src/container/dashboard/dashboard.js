@@ -16,9 +16,9 @@ class DashBoard extends React.Component {
         return (
             <div className="light-background">
                 <div className="flex-container">
-                    {/* <UserList/>
+                    <UserList/>
                 <UserDetail/>
-                <AddUser/> */}
+                <AddUser/>
                     <div className="flex-container chart-box">
                        <LineChart />
                     </div>

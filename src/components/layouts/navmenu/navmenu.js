@@ -32,28 +32,6 @@ const NavMenu = (props) => (
           primaryText="Dashboard"
           leftIcon={<i className="material-icons">dashboard</i>}
           containerElement={<Link to="/" />} />
-        <MenuItem
-          onClick={props.handleToggle}
-          primaryText="Set"
-          leftIcon={<i className="material-icons">settings</i>}
-          containerElement={<Link to="/settings" />} />
-        <MenuItem
-          onClick={props.handleToggle}
-          primaryText=" App  &nbsp; &nbsp;"
-          leftIcon={<i className="material-icons">done_all</i>}
-          containerElement={<Link to="/approval" />} />
-        <MenuItem
-          onClick={props.handleToggle}
-          primaryText="Tm"
-          leftIcon={<i className="material-icons">group</i>}
-          containerElement={<Link to="/team" />} />
-        <MenuItem
-          onClick={props.handleToggle}
-          primaryText="Pay"
-          leftIcon={<i className="material-icons">credit_card</i>}
-          containerElement={<Link to="/payout" />} />
-      </Menu>
-      <Menu menuItemStyle={style.menuItem}>
         <MenuItem onClick={props.handleToggle} primaryText="Dashboard" leftIcon={<i className="material-icons">dashboard</i>} />
         <MenuItem onClick={props.handleToggle} primaryText="Pla" leftIcon={<i className="material-icons">event_note</i>} />
         <MenuItem 
