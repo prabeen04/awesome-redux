@@ -21,6 +21,7 @@ class UserList extends React.Component {
     }
 
     componentDidMount() {
+        console.log('jfjgjjg')
         this.props.getUsers();
     }
     render() {
