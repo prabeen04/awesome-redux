@@ -1,6 +1,5 @@
 export default function ({ dispatch }) {
     return next => action => {
-        console.log(action)
         // middleware to handle async request
         if (!action.payload || !action.payload.then) {
             return next(action)
