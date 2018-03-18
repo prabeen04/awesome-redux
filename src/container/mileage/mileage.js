@@ -44,10 +44,9 @@ class Mileage extends Component {
     render() {
         const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
             <div>
-                <TextField
-                    floatingLabelText={label}
-                    underlineStyle={styles.underLine}
-                    errorText={touched && error}
+                <Input
+                    placeholder={label}
+                    className="semantic-input"
                     {...input}
                     {...custom}
                 />

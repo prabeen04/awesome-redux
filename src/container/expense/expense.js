@@ -20,6 +20,17 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './expense.css'
 import { Button, Input as BootInput } from 'reactstrap';
 
+const data = {
+    // used to populate "account" reducer when "Load" is clicked
+    expense_types: 'Jane',
+    expense_date: 'Doe',
+    Clients: '42',
+    description: 'female',
+    expense_amount: true,
+    expense_currency: 'Blue',
+    reciept: 'Born to write amazing Redux code.',
+    reciept: 'Born to write amazing Redux code.'
+  }
 const stateOptions1 = [
     { key: 'prabeen', value: 'prabeen', text: 'Prabeen' },
     { key: 'pogba', value: 'pogba', text: 'Pogba' },
