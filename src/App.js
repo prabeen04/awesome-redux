@@ -25,12 +25,6 @@ class App extends Component {
         <Navbar style={{ position: 'fixed' }} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
-          <Route exact path="/settings" component={Settings} />
-          <Route exact path="/approval" component={Approval} />
-          <Route exact path="/team" component={Team} />
-          <Route exact path="/payout" component={Payout} />
-          <Route exact path="/expense" component={Expense} />
-          <Route exact path="/mileage" component={Mileage} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
