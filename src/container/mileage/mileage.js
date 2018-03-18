@@ -39,9 +39,12 @@ const styles = {
 class Mileage extends Component {
     constructor(props) {
         super(props)
+        this.onSubmit = this.onSubmit.bind(this);
     }
-
-
+    
+    onSubmit = values => {
+        console.log(values);
+    }
     render() {
         const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
             <div>
@@ -89,7 +92,6 @@ class Mileage extends Component {
                                 type="text"
                                 component={renderField}
                                 label="From"
-                                style={styles.fieldWidth}
                             />
                         </div>
                         <div className="mileage-flex">
@@ -98,7 +100,6 @@ class Mileage extends Component {
                                 type="text"
                                 component={renderField}
                                 label="To"
-                                style={styles.fieldWidth}
                             />
                         </div>
                         <div className="mileage-flex">
@@ -107,7 +108,6 @@ class Mileage extends Component {
                                 type="text"
                                 component={renderField}
                                 label="Distance"
-                                style={styles.fieldWidth}
                             />
                         </div>
                         <div className="mileage-flex">
@@ -116,7 +116,6 @@ class Mileage extends Component {
                                 type="text"
                                 component={renderField}
                                 label="Remark"
-                                style={styles.fieldWidth}
                             />
                         </div>
                         <div className="mileage-flex">
@@ -124,7 +123,6 @@ class Mileage extends Component {
                                 name={`${member}mileage-rate`}
                                 component={renderField}
                                 label="Mileage rate €/km"
-                                style={styles.fieldWidth}
                             />
                         </div>
 
@@ -152,16 +150,10 @@ class Mileage extends Component {
         const { handleSubmit, pristine, reset, submitting } = this.props
         return (
             <div>
-                <form onSubmit={handleSubmit}>
-                    {/* <Field
-                        name="clubName"
-                        type="text"
-                        component={renderField}
-                        label="Club Name"
-                    /> */}
+                <form onSubmit={handleSubmit(this.onSubmit)}>
                     <FieldArray name="members" component={renderMembers} />
                     <div>
-                        <RaisedButton label="Submit" primary={true} disabled={submitting} style={{margin: 12}} />
+                        <RaisedButton type="submit" label="Submit" primary={true} disabled={submitting} style={{margin: 12}} />
                         <RaisedButton label="Reset" secondary={true} disabled={pristine || submitting} style={{margin: 12}} onClick={reset} />
                         {/* <button type="submit" disabled={submitting}>Submit</button>
                         <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button> */}
