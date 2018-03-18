@@ -11,6 +11,7 @@ import IconButton from 'material-ui/IconButton';
 import AddCircle from 'material-ui/svg-icons/content/add-circle';
 import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem'
+import { Input } from 'semantic-ui-react'
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
 import './mileage.css'
 const styles = {
@@ -53,29 +54,7 @@ class Mileage extends Component {
                 {touched && error && <span>{error}</span>}
             </div>
         )
-        const renderDatePicker = ({ input, defaultValue, meta: { touched, error } }) => (
-            <DatePicker
-                errorText={touched && error}
-                {...input}
-                floatingLabelText="mileage Date"
-                autoOk={true}
-                textFieldStyle={{ width: 120 }}
-                underlineStyle={styles.underLine}
-                value={input.value !== '' ? new Date(input.value) : null}
-                onChange={(event, value) => { console.log(value); input.onChange(value) }} />
-        )
 
-        const renderSelectField = ({ input, label, meta: { touched, error }, children, ...custom }) => (
-            <SelectField
-                floatingLabelText={label}
-                underlineStyle={styles.underLine}
-                errorText={touched && error}
-                {...input}
-                onChange={(event, index, value) => input.onChange(value)}
-                children={children}
-                {...custom}
-            />
-        )
         const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
             <div className="">
                 
