@@ -63,14 +63,15 @@ class Mileage extends Component {
                         {/* <h4>Member #{index + 1}</h4> */}
                         <div className="mileage-flex">
                             <Field
-                                name={`${member}client`}
-                                component={renderSelectField}
-                                label="Client"
-                                style={styles.fieldWidth}
-                            >
-                                <MenuItem value="ff0000" primaryText="CellPhone" />
-                                <MenuItem value="00ff00" primaryText="Travell" />
-                                <MenuItem value="0000ff" primaryText="Hotel" />
+                                name={`${member}.clients`}
+                                component="select"
+                                label="Clients"
+                                className="form-control">
+                                <option value="cellphone">cellphone</option>
+                                <option value="travell">travell</option>
+                                <option value="hotel">hotel</option>
+                                <option value="food">food</option>
+                                <option value="others">others</option>
                             </Field>
                         </div>
                         <div className="mileage-flex">
