@@ -19,35 +19,6 @@ class DashBoard extends React.Component {
                     {/* <UserList/>
                 <UserDetail/>
                 <AddUser/> */}
-                    <div className="flex-container jumpstart-box">
-                        <h2>0.0 €</h2>
-                        <h3>Negotiation Stage</h3>
-                    </div>
-                    <div className="flex-container jumpstart-box">
-                        <h2>125.0 €</h2>
-                        <h3>Funnel Value</h3>
-                    </div>
-                    <div className="flex-container jumpstart-box">
-                        <h2>43.7 %</h2>
-                        <h3>Project Margin</h3>
-                    </div>
-                    <div className="flex-container jumpstart-box">
-                        <h2>45.6%</h2>
-                        <h3>Sales Forecast</h3>
-                    </div>
-                    <div className="flex-container jumpstart-box">
-                        <h2>110.0 €</h2>
-                        <h3>Approved Expenses</h3>
-                    </div>
-                    <div className="flex-container jumpstart-box">
-                        <h2>5050.0 €</h2>
-                        <h3>Approved Mileage</h3>
-                    </div>
-                </div>
-                <div className="flex-container">
-                    {/* <UserList/>
-                <UserDetail/>
-                <AddUser/> */}
                     <div className="flex-container chart-box">
                        <LineChart />
                     </div>
