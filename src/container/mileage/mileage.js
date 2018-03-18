@@ -59,7 +59,7 @@ class Mileage extends Component {
             <div className="">
                 
                 {fields.map((member, index) => (
-                    <div className="flex-container my-card" key={index}>
+                    <div className="flex-container  form-row-height" key={index}>
                         {/* <h4>Member #{index + 1}</h4> */}
                         <div className="mileage-flex">
                             <Field
@@ -75,11 +75,11 @@ class Mileage extends Component {
                             </Field>
                         </div>
                         <div className="mileage-flex">
-                            <Field
+                        <Field
                                 name={`${member}.mileage_date`}
-                                component={renderDatePicker}
-                                style={styles.fieldWidth}
-
+                                component="input"
+                                type="date"
+                                className="form-control"
                             />
                         </div>
                        
