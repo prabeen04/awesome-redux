@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { GET_POSTS } from '../constants/posts_actiontypes';
 
+const baseURL = 'https://prabeen-restapi.herokuapp.com/api/posts';
+
 export const getPosts = () => {
-    let baseURL = 'https://prabeen-restapi.herokuapp.com/api/posts';
     let request = axios.get(baseURL);
     return ({
         type: GET_POSTS,

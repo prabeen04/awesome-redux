@@ -32,7 +32,10 @@ const NavMenu = (props) => (
           primaryText="Dashboard"
           leftIcon={<i className="material-icons">dashboard</i>}
           containerElement={<Link to="/" />} />
-        <MenuItem onClick={props.handleToggle} primaryText="Posts" leftIcon={<i className="material-icons">account_box</i>} />
+        <MenuItem onClick={props.handleToggle} 
+          primaryText="Posts" 
+          leftIcon={<i className="material-icons">account_box</i>} 
+          containerElement={<Link to="/posts" />}/>
       </Menu>
   </div>
 );
