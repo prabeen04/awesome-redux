@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addUser } from './actions/user_action';
 import Navbar from './components/layouts/navbar/navbar';
 import Dashboard from './container/dashboard/dashboard';
+import Posts from './container/post/post';
 import NotFound from './container/notfound/notfound';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
@@ -16,6 +17,7 @@ class App extends Component {
         <Navbar style={{ position: 'fixed' }} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
+          <Route exact path="/posts" component={Posts} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
