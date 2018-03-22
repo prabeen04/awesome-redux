@@ -18,10 +18,12 @@ class PostList extends React.Component {
     render() {
         let renderPost = this.props.posts.map(post => {
             return <div key={post._id}>
-                <p>{post.title}</p>
+                <h4>{post.title}</h4> by <p>{post.author} on {post.date}</p>
+                <p>{post.body}</p>
+                <hr/>
             </div>
         })
-        return (<div>
+        return (<div className="">
             <h1>post list</h1>
             {renderPost}
         </div>
