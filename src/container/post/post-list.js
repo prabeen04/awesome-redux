@@ -12,4 +12,4 @@ class PostList extends React.Component{
         );
     }
 }
-export default PostList;
+export default connect(mapStateToProps, mapDispatchToProps)(PostList);
