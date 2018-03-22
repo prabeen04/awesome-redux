@@ -1,4 +1,5 @@
 import React from 'react';
+import PostList from './post-list';
 
 class Posts extends React.Component{
     constructor(props){
@@ -8,7 +9,7 @@ class Posts extends React.Component{
     render(){
         return(
             <div className="flex-container">
-                <h1>Post List</h1>
+                <PostList/>
             </div>
         );
     }
