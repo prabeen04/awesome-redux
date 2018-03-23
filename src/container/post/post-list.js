@@ -23,6 +23,9 @@ class PostList extends React.Component {
                 <hr/>
             </div>
         })
+        if(!this.props.posts.length){
+            return(<div>Loading...</div>)
+        }
         return (<div className="">
             <h1>post list</h1>
             {renderPost}
