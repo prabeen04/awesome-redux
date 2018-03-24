@@ -40,7 +40,7 @@ class Posts extends React.Component {
                 <RaisedButton label="Add a Post" onClick={this.handleOpen} />
                 <div className="flex-container">
                     <Dialog
-                        title="Scrollable Dialog"
+                        title="Share Your Story"
                         actions={actions}
                         modal={false}
                         open={this.state.open}
