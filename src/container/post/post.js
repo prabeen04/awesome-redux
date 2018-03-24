@@ -36,9 +36,9 @@ class Posts extends React.Component {
             />,
         ];
         return (
-            <div className="flex-container">
-                <div>
-                    <RaisedButton label="Scrollable Dialog" onClick={this.handleOpen} />
+            <div>
+                <RaisedButton label="Add a Post" onClick={this.handleOpen} />
+                <div className="flex-container">
                     <Dialog
                         title="Scrollable Dialog"
                         actions={actions}
