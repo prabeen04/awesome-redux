@@ -16,6 +16,7 @@ class AddPost extends Component {
         this.state = {
             open: false,
         };
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
     handleOpen = () => {
@@ -26,6 +27,11 @@ class AddPost extends Component {
         this.setState({ open: false });
     };
 
+    onSubmit = (values) => {
+        console.log(values)
+        // this.props.addPost(this.postForm.value);
+    //    this.setState({name: '', email: '', location: ''})
+   }
     render() {
 
         const actions = [
@@ -58,7 +64,6 @@ class AddPost extends Component {
                 <Form.Field
                     placeholder={label}
                     className="semantic-input"
-                    fluid={true}
                     control={TextArea}
                     siz="large"
                     {...input}
@@ -80,7 +85,7 @@ class AddPost extends Component {
                         onRequestClose={this.handleClose}
                         autoScrollBodyContent={true}
                     >
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="post-input">
                                 <Field name="author" label="Author" component={renderField} />
                             </div>
