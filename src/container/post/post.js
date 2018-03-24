@@ -1,5 +1,6 @@
 import React from 'react';
 import PostList from './post_list';
+import AddPost from './add_post';
 
 class Posts extends React.Component{
     constructor(props){
@@ -9,6 +10,7 @@ class Posts extends React.Component{
     render(){
         return(
             <div className="flex-container">
+                <AddPost/>
                 <PostList/>
             </div>
         );
