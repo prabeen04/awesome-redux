@@ -7,49 +7,15 @@ import RaisedButton from 'material-ui/RaisedButton';
 class Posts extends React.Component {
     constructor(props) {
         super(props)
-
-        this.state = {
-            open: false,
-        };
     }
 
-    handleOpen = () => {
-        this.setState({ open: true });
-    };
-
-    handleClose = () => {
-        this.setState({ open: false });
-    };
 
     render() {
-        const actions = [
-            <RaisedButton
-                label="Cancel"
-                primary={true}
-                onClick={this.handleClose}
-            />,
-            <RaisedButton
-                label="Submit"
-                primary={true}
-                keyboardFocused={true}
-                onClick={this.handleClose}
-            />,
-        ];
+ 
         return (
             <div>
-                <RaisedButton label="Add a Post" onClick={this.handleOpen} />
-                <div className="flex-container">
-                    <Dialog
-                        title="Share Your Story"
-                        actions={actions}
-                        modal={false}
-                        open={this.state.open}
-                        onRequestClose={this.handleClose}
-                        autoScrollBodyContent={true}
-                    >
-                        <AddPost />
-                    </Dialog>
-                </div>
+                  <AddPost />
+
 
                 <PostList />
             </div>

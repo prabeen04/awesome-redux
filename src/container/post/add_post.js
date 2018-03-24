@@ -23,6 +23,20 @@ class AddPost extends Component {
     };
 
     render() {
+
+        const actions = [
+            <RaisedButton
+                label="Cancel"
+                primary={true}
+                onClick={this.handleClose}
+            />,
+            <RaisedButton
+                label="Submit"
+                primary={true}
+                keyboardFocused={true}
+                onClick={this.handleClose}
+            />,
+        ];
         const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
             <div>
                 <Input
@@ -52,18 +66,31 @@ class AddPost extends Component {
         const { handleSubmit, pristine, reset, submitting } = this.props
         return (
             <div>
-                <form onSubmit={handleSubmit}>
-                    <div className="post-input">
-                        <Field name="author" label="Author" component={renderField} />
-                    </div>
-                    <div className="post-input">
-                        <Field name="title" label="Post Title" component={renderField}  />
-                    </div>
-                    <div className="post-input">
-                        <Field name="body" label="Your Story" component={renderTextarea}  style={{width: '100%'}} />
-                    </div>
-                    <button type="submit">Submit</button>
-                </form>
+                <RaisedButton label="Add a Post" onClick={this.handleOpen} />
+                <div className="flex-container">
+                    <Dialog
+                        title="Share Your Story"
+                        actions={actions}
+                        modal={false}
+                        open={this.state.open}
+                        onRequestClose={this.handleClose}
+                        autoScrollBodyContent={true}
+                    >
+                        <form onSubmit={handleSubmit}>
+                            <div className="post-input">
+                                <Field name="author" label="Author" component={renderField} />
+                            </div>
+                            <div className="post-input">
+                                <Field name="title" label="Post Title" component={renderField} />
+                            </div>
+                            <div className="post-input">
+                                <Field name="body" label="Your Story" component={renderTextarea} style={{ width: '100%' }} />
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </Dialog>
+                </div>
+
             </div>
         )
     }
