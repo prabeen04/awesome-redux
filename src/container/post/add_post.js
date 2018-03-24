@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -95,8 +96,24 @@ class AddPost extends Component {
         )
     }
 }
-AddPost = reduxForm({
-    form: 'postForm'
-})(AddPost);
+const validate = values => {
+    const errors = {};
+    return errors
+}
+const mapStateToProps = (state) => ({
+    // ...
+});
 
-export default AddPost;
+const mapDispatchToProps = (dispatch)  => ({
+    // ...
+});
+
+AddPost = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AddPost);
+
+export default reduxForm({
+    form: 'postForm',
+    validate
+})(AddPost);
