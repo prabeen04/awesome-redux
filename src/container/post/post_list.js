@@ -27,7 +27,6 @@ class PostList extends React.Component {
             return(<div>Loading...</div>)
         }
         return (<div className="">
-            <h1>post list</h1>
             {renderPost}
         </div>
 
