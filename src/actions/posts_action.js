@@ -12,6 +12,7 @@ export const getPosts = () => {
 }
 
 export const addPost = (post) => {
+    console.log('inside addPost action creator')
     let request = axios.post(baseURL, post);
     return ({
         type: GET_POSTS,

@@ -29,7 +29,7 @@ class AddPost extends Component {
 
     onSubmit = (values) => {
         console.log(values)
-        // this.props.addPost(this.postForm.value);
+        this.props.addPost(values);
     //    this.setState({name: '', email: '', location: ''})
    }
     render() {
@@ -85,7 +85,7 @@ class AddPost extends Component {
                         onRequestClose={this.handleClose}
                         autoScrollBodyContent={true}
                     >
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(this.onSubmit)}>
                             <div className="post-input">
                                 <Field name="author" label="Author" component={renderField} />
                             </div>
