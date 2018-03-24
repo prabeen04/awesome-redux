@@ -9,15 +9,15 @@ class UserDetail extends React.Component{
         return(
             <div>
                 <h1>User Detail</h1>
-                <p className=" appbar">{this.props.selectedUser.name}</p>
-                <p className=" appbar">{this.props.selectedUser.email}</p>
-                <p className=" appbar">{this.props.selectedUser.location || 'No Location Available'}</p>
+                <p className="">{this.props.selectedUser.name}</p>
+                <p className="">{this.props.selectedUser.email || 'No Email Provided'}</p>
+                <p className="">{this.props.selectedUser.location || 'No Location Available'}</p>
                 
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     this.props.editUser(this.props.selectedUser._id )
                 }}>
                  Edit Userss
-                </button>
+                </button> */}
                 <button onClick={() => {
                     this.props.deleteUser(this.props.selectedUser._id)
                 }}>

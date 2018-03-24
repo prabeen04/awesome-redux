@@ -10,10 +10,10 @@ class DashBoard extends React.Component {
     render() {
         return (
             <div className="light-background">
-                <div className="flex-container">
+                <div className="flex-container-column">
                     <UserList/>
-                <UserDetail/>
-                <AddUser/>                   
+                    <UserDetail/>
+                    <AddUser/>                   
                 </div>
 
             </div>
