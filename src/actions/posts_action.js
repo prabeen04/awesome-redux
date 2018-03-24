@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_POSTS } from '../constants/posts_actiontypes';
+import { GET_POSTS, ADD_POST } from '../constants/posts_actiontypes';
 
 const baseURL = 'https://prabeen-restapi.herokuapp.com/api/posts';
 
@@ -11,7 +11,7 @@ export const getPosts = () => {
     })
 }
 
-export const addpost = (post) => {
+export const addPost = (post) => {
     let request = axios.post(baseURL, post);
     return ({
         type: GET_POSTS,

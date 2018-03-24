@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { addPost } from '../../actions/posts_action';
 import { Field, reduxForm } from 'redux-form';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Form, Input, TextArea } from 'semantic-ui-react'
-import './post.css'
+import './post.css';
+
 class AddPost extends Component {
     constructor(props) {
         super(props)
@@ -104,9 +107,9 @@ const mapStateToProps = (state) => ({
     // ...
 });
 
-const mapDispatchToProps = (dispatch)  => ({
-    // ...
-});
+const mapDispatchToProps = (dispatch)  => {
+    return bindActionCreators({ addPost: addPost }, dispatch)
+};
 
 AddPost = connect(
     mapStateToProps,
