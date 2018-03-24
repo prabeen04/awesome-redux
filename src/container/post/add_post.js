@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Input } from 'semantic-ui-react'
+import { Form, Input, TextArea } from 'semantic-ui-react'
 
 class AddPost extends Component {
     constructor(props) {
@@ -14,6 +14,7 @@ class AddPost extends Component {
                 <Input
                     placeholder={label}
                     className="semantic-input"
+                    fluid={true}
                     {...input}
                     {...custom}
                 />
@@ -22,9 +23,12 @@ class AddPost extends Component {
         )
         const renderTextarea = ({ input, label, type, meta: { touched, error }, ...custom }) => (
             <div>
-                <Form.TextArea
+                <Form.Field
                     placeholder={label}
                     className="semantic-input"
+                    fluid={true}
+                    control={TextArea}
+                    siz="large"
                     {...input}
                     {...custom}
                 />
@@ -36,13 +40,13 @@ class AddPost extends Component {
             <div>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <Field name="author" label="Author" component={renderField} type="text" />
+                        <Field name="author" label="Author" component={renderField} />
                     </div>
                     <div>
-                        <Field name="title" label="Post Title" component={renderField}  type="text" />
+                        <Field name="title" label="Post Title" component={renderField}  />
                     </div>
                     <div>
-                        <Field name="body" label="Your Story" component={renderTextarea}  type="text" />
+                        <Field name="body" label="Your Story" component={renderTextarea}  style={{width: '100%'}} />
                     </div>
                     <button type="submit">Submit</button>
                 </form>
