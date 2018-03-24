@@ -10,3 +10,11 @@ export const getPosts = () => {
         payload: request
     })
 }
+
+export const addpost = (post) => {
+    let request = axios.post(baseURL, post);
+    return ({
+        type: GET_POSTS,
+        payload: request
+    })
+}
