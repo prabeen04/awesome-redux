@@ -17,6 +17,9 @@ class AddPost extends Component {
             open: false,
         };
         this.onSubmit = this.onSubmit.bind(this)
+        this.renderField = this.renderField.bind(this)
+        this.renderTextarea = this.renderTextarea.bind(this)
+        // this.action = this.action.bind(this)
     }
 
     handleOpen = () => {
@@ -32,9 +35,34 @@ class AddPost extends Component {
         this.props.addPost(values);
     //    this.setState({name: '', email: '', location: ''})
    }
-    render() {
 
-        const actions = [
+ renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
+    <div>
+        <Input
+            placeholder={label}
+            className="semantic-input"
+            fluid={true}
+            {...input}
+            {...custom}
+        />
+        {touched && error && <span>{error}</span>}
+    </div>
+)
+ renderTextarea = ({ input, label, type, meta: { touched, error }, ...custom }) => (
+    <div>
+        <Form.Field
+            placeholder={label}
+            className="semantic-input"
+            control={TextArea}
+            siz="large"
+            {...input}
+            {...custom}
+        />
+        {touched && error && <span>{error}</span>}
+    </div>
+)
+    render() {
+       const actions = [
             <RaisedButton
                 label="Cancel"
                 primary={true}
@@ -47,36 +75,13 @@ class AddPost extends Component {
                 onClick={this.handleClose}
             />,
         ];
-        const renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
-            <div>
-                <Input
-                    placeholder={label}
-                    className="semantic-input"
-                    fluid={true}
-                    {...input}
-                    {...custom}
-                />
-                {touched && error && <span>{error}</span>}
-            </div>
-        )
-        const renderTextarea = ({ input, label, type, meta: { touched, error }, ...custom }) => (
-            <div>
-                <Form.Field
-                    placeholder={label}
-                    className="semantic-input"
-                    control={TextArea}
-                    siz="large"
-                    {...input}
-                    {...custom}
-                />
-                {touched && error && <span>{error}</span>}
-            </div>
-        )
+
         const { handleSubmit, pristine, reset, submitting } = this.props
         return (
             <div>
                 <RaisedButton label="Add a Post" onClick={this.handleOpen} />
                 <div className="flex-container">
+                <form onSubmit={handleSubmit(this.onSubmit)}>
                     <Dialog
                         title="Share Your Story"
                         actions={actions}
@@ -85,19 +90,19 @@ class AddPost extends Component {
                         onRequestClose={this.handleClose}
                         autoScrollBodyContent={true}
                     >
-                        <form onSubmit={handleSubmit(this.onSubmit)}>
+                        
                             <div className="post-input">
-                                <Field name="author" label="Author" component={renderField} />
+                                <Field name="author" label="Author" component={this.renderField} />
                             </div>
                             <div className="post-input">
-                                <Field name="title" label="Post Title" component={renderField} />
+                                <Field name="title" label="Post Title" component={this.renderField} />
                             </div>
                             <div className="post-input">
-                                <Field name="body" label="Your Story" component={renderTextarea} style={{ width: '100%' }} />
+                                <Field name="body" label="Your Story" component={this.renderTextarea} style={{ width: '100%' }} />
                             </div>
                             <button type="submit">Submit</button>
-                        </form>
                     </Dialog>
+                  </form> 
                 </div>
 
             </div>
