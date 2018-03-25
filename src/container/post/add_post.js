@@ -33,6 +33,7 @@ class AddPost extends Component {
     };
 
     onSubmit = (values) => {
+        this.setState({ open: false });
         console.log('values')
         this.props.addPost(values);
    }
@@ -72,7 +73,7 @@ class AddPost extends Component {
             <RaisedButton
                 label="Submit"
                 primary={true}
-                onClick={this.handleClose}
+                onClick={this.props.handleSubmit(this.onSubmit)}
             />,
         ];
 
