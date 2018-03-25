@@ -36,10 +36,7 @@ export const addPost = (post) => {
         return axios.post(`${baseURL}`,post)
             .then(response => {
                 console.log(response.data)
-                dispatch({
-                    type: GET_POSTS_SUCCESS,
-                    payload: response.data
-                })
+                dispatch(getPosts())
             })
             .catch(error => {
                 dispatch({
