@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getPosts } from '../../actions/posts_action';
+import { getPosts, deletePost } from '../../actions/posts_action';
 import ContentLoader from '../../components/loaders/content-loader/content_loader';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
@@ -30,7 +30,10 @@ class PostList extends React.Component {
         //     </div>
         // })
         let renderPost = this.props.posts.map(post => {
-            return <Card key={post._id} style={{margin: '1rem 0.4rem', boxShadow: ' 0 2px 4px 2px #ccc'}}>
+            return <Card 
+                key={post._id} 
+                onDoubleClick ={ () =>this.props.deletePost(post._id)}
+                style={{margin: '1rem 0.4rem', boxShadow: ' 0 2px 4px 2px #ccc'}}>
                 {/* <CardHeader
                     title={post.author}
                     subtitle="Programmer"
@@ -64,7 +67,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        getPosts: getPosts
+        getPosts: getPosts,
+        deletePost: deletePost
     }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PostList);
