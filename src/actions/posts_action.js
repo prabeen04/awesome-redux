@@ -49,11 +49,12 @@ export const addPost = (post) => {
 }
 
 export const deletePost = (post_id) => {
+    console.log(post_id)
     return (dispatch) => {
         dispatch({
             type: DELETE_POST
         })
-        return axios.delete(`${baseURL}`,post_id)
+        return axios.delete(`${baseURL}/${post_id}`,{post_id})
             .then(response => {
                 dispatch(getPosts())
             })

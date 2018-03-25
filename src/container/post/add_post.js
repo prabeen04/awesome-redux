@@ -82,7 +82,9 @@ class AddPost extends Component {
         const { handleSubmit, pristine, reset, submitting } = this.props
         return (
             <div>
-                <FloatingActionButton  onClick={this.handleOpen} 
+                <FloatingActionButton  
+                    onClick={this.handleOpen} 
+                    zDepth={4}
                     style={{position: 'fixed',right: '2rem', bottom: '2rem', zIndex: '1000'}}>
                     <ContentAdd />
                 </FloatingActionButton>
