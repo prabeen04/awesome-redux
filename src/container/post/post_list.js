@@ -20,6 +20,9 @@ class PostList extends React.Component {
         if(this.props.isLoading){
             return(<div>Loading...</div>);
         }
+        if(this.props.isError){
+            return(<div>Error Fetching data</div>);
+        }
         let renderPost = this.props.posts.map(post => {
             return <div key={post._id}>
                 <h4>{post.title}</h4> by <p>{post.author} on {post.date}</p>

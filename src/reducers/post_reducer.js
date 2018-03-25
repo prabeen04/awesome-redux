@@ -1,7 +1,4 @@
-import {
-    GET_POSTS,
-    ADD_POST
-} from '../constants/posts_actiontypes';
+import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, ADD_POST } from '../constants/posts_actiontypes';
 
 const initialState = {
     isLoading: true,

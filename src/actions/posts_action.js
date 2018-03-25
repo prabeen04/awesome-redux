@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, ADD_POST } from '../constants/posts_actiontypes';
+import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, ADD_POST, ADD_POST_SUCCESS, ADD_POST_FAILURE, } from '../constants/posts_actiontypes';
 
 const baseURL = 'https://prabeen-restapi.herokuapp.com/api/posts';
 
@@ -8,11 +8,11 @@ export const getPosts = () => {
         dispatch({
             type: GET_POSTS
         })
-        return axios.get(`${base_url}`)
-            .then(users => {
+        return axios.get(`${baseURL}`)
+            .then(response => {
                 dispatch({
                     type: GET_POSTS_SUCCESS,
-                    payload: users
+                    payload: response.data
                 })
             })
             .catch(error => {
@@ -29,9 +29,21 @@ export const getPosts = () => {
 }
 
 export const addPost = (post) => {
-    let request = axios.post(baseURL, post);
-    return ({
-        type: GET_POSTS,
-        payload: request
-    })
+    return (dispatch) => {
+        dispatch({
+            type: ADD_POST
+        })
+        return axios.get(`${baseURL}`,post)
+            .then(response => {
+                dispatch({
+                    type: ADD_POST_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(error => {
+                dispatch({
+                    type: ADD_POST_FAILURE
+                })
+            });
+    }
 }
