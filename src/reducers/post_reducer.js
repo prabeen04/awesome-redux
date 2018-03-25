@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, ADD_POST } from '../constants/posts_actiontypes';
+import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, ADD_POST, ADD_POST_SUCCESS, ADD_POST_FAILURE  } from '../constants/posts_actiontypes';
 
 const initialState = {
     isLoading: true,
@@ -27,7 +27,19 @@ export const postReducer = (state = initialState, action) => {
     }
     switch (action.type) {
         case ADD_POST:
-            return [...state, ...action.payload];
+            return Object.assign({}, state, {
+                isLoading: true
+            })
+        case ADD_POST_SUCCESS:
+            return Object.assign({}, state, {
+                isLoading: false,
+                posts: [...action.payload]
+            })
+        case ADD_POST_FAILURE:
+            return Object.assign({}, state, {
+                isLoading: false,
+                isError: true
+            })
     }
     return state;
 }

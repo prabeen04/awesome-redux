@@ -31,9 +31,8 @@ class AddPost extends Component {
     };
 
     onSubmit = (values) => {
-        console.log(values)
+        console.log('values')
         this.props.addPost(values);
-    //    this.setState({name: '', email: '', location: ''})
    }
 
  renderField = ({ input, label, type, meta: { touched, error }, ...custom }) => (
@@ -71,7 +70,6 @@ class AddPost extends Component {
             <RaisedButton
                 label="Submit"
                 primary={true}
-                keyboardFocused={true}
                 onClick={this.handleClose}
             />,
         ];
@@ -81,7 +79,6 @@ class AddPost extends Component {
             <div>
                 <RaisedButton label="Add a Post" onClick={this.handleOpen} />
                 <div className="flex-container">
-                <form onSubmit={handleSubmit(this.onSubmit)}>
                     <Dialog
                         title="Share Your Story"
                         actions={actions}
@@ -90,6 +87,7 @@ class AddPost extends Component {
                         onRequestClose={this.handleClose}
                         autoScrollBodyContent={true}
                     >
+                <form onSubmit={handleSubmit(this.onSubmit)}>
                         
                             <div className="post-input">
                                 <Field name="author" label="Author" component={this.renderField} />
@@ -102,8 +100,8 @@ class AddPost extends Component {
                                 <Field name="body" label="Your Story" component={this.renderTextarea} style={{ width: '100%' }} />
                             </div>
                             <button type="submit">Submit</button>
-                    </Dialog>
                   </form> 
+                    </Dialog>
                 </div>
 
             </div>
