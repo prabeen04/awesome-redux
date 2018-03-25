@@ -29,7 +29,7 @@ class PostList extends React.Component {
         //     </div>
         // })
         let renderPost = this.props.posts.map(post => {
-            return <Card key={post._id}>
+            return <Card key={post._id} style={{margin: '1rem 0.4rem', boxShadow: ' 0 2px 4px 2px #ccc'}}>
                 {/* <CardHeader
                     title={post.author}
                     subtitle="Programmer"
