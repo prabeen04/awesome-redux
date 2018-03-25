@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPosts } from '../../actions/posts_action';
+import ContentLoader from '../../components/loaders/content-loader/content_loader';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
 class PostList extends React.Component {
@@ -15,7 +16,7 @@ class PostList extends React.Component {
     render() {
         console.log(this.props)
         if (this.props.isLoading) {
-            return (<div>Loading...</div>);
+            return (<ContentLoader />);
         }
         if (this.props.isError) {
             return (<div>Error Fetching data</div>);

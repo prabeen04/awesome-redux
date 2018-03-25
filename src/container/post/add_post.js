@@ -67,8 +67,10 @@ class AddPost extends Component {
        const actions = [
             <RaisedButton
                 label="Cancel"
-                primary={true}
+                secondary={true}
                 onClick={this.handleClose}
+                style={{ marginRight: '1rem'}}
+
             />,
             <RaisedButton
                 label="Submit"
@@ -105,7 +107,6 @@ class AddPost extends Component {
                             <div className="post-input">
                                 <Field name="body" label="Your Story" component={this.renderTextarea} style={{ width: '100%' }} />
                             </div>
-                            <button type="submit">Submit</button>
                   </form> 
                     </Dialog>
                 </div>
