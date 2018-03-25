@@ -6,6 +6,8 @@ import { addPost } from '../../actions/posts_action';
 import { Field, reduxForm } from 'redux-form';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 import { Form, Input, TextArea } from 'semantic-ui-react'
 import './post.css';
 
@@ -77,7 +79,10 @@ class AddPost extends Component {
         const { handleSubmit, pristine, reset, submitting } = this.props
         return (
             <div>
-                <RaisedButton label="Add a Post" onClick={this.handleOpen} />
+                <FloatingActionButton  onClick={this.handleOpen} 
+                    style={{position: 'fixed',right: '2rem', bottom: '2rem', zIndex: '1000'}}>
+                    <ContentAdd />
+                </FloatingActionButton>
                 <div className="flex-container">
                     <Dialog
                         title="Share Your Story"
