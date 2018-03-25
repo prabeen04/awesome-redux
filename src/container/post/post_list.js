@@ -18,7 +18,7 @@ class PostList extends React.Component {
     render() {
         console.log(this.props)
         if(this.props.isLoading){
-            return(<div>Loading...</div>)
+            return(<div>Loading...</div>);
         }
         let renderPost = this.props.posts.map(post => {
             return <div key={post._id}>
