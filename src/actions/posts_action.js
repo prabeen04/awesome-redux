@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, ADD_POST, ADD_POST_SUCCESS, ADD_POST_FAILURE } from '../constants/posts_actiontypes';
+import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, 
+        ADD_POST, ADD_POST_SUCCESS, ADD_POST_FAILURE,
+        DELETE_POST } from '../constants/posts_actiontypes';
 
 const baseURL = 'https://prabeen-restapi.herokuapp.com/api/posts';
 
@@ -42,6 +44,21 @@ export const addPost = (post) => {
                 dispatch({
                     type: ADD_POST_FAILURE
                 })
+            });
+    }
+}
+
+export const deletePost = (post_id) => {
+    return (dispatch) => {
+        dispatch({
+            type: DELETE_POST
+        })
+        return axios.delete(`${baseURL}`,post_id)
+            .then(response => {
+                dispatch(getPosts())
+            })
+            .catch(error => {
+                console.log(error)
             });
     }
 }
