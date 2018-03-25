@@ -20,40 +20,31 @@ class PostList extends React.Component {
         if (this.props.isError) {
             return (<div>Error Fetching data</div>);
         }
+        // let renderPost = this.props.posts.map(post => {
+        //     return <div key={post._id} className="post-container">
+        //         <h4 className="post-container">{post.title}</h4>
+        //         by <p className="post-container">{post.author} on {post.date}</p>
+        //         <p className="post-container">{post.body}</p>
+        //         <hr />
+        //     </div>
+        // })
         let renderPost = this.props.posts.map(post => {
-            return <div key={post._id} className="post-container">
-                <h4 className="post-container">{post.title}</h4>
-                by <p className="post-container">{post.author} on {post.date}</p>
-                <p className="post-container">{post.body}</p>
-                <hr />
-            </div>
-        })
-        let renderPost = this.props.posts.map(post => {
-            return <Card>
-                <CardHeader
-                    title="URL Avatar"
-                    subtitle="Subtitle"
-                    avatar="images/jsa-128.jpg"
-                />
-                <CardMedia
-                    overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-                >
-                    <img src="images/nature-600-337.jpg" alt="" />
-                </CardMedia>
-                <CardTitle title="Card title" subtitle="Card subtitle" />
+            return <Card key={post._id}>
+                {/* <CardHeader
+                    title={post.author}
+                    subtitle="Programmer"
+                /> */}
+                <CardTitle title={post.title} subtitle={`By ${post.author} on ${post.date}`} />
                 <CardText>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                    Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                    Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                {post.body}
             </CardText>
-                <CardActions>
+                {/* <CardActions>
                     <FlatButton label="Action1" />
                     <FlatButton label="Action2" />
-                </CardActions>
+                </CardActions> */}
             </Card>
         })
-        return (<div className="flex-container">
+        return (<div className="flex-container-column">
             {renderPost}
         </div>
 
