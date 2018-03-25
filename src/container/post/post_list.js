@@ -16,6 +16,10 @@ class PostList extends React.Component {
         this.props.getPosts();
     }
     render() {
+        console.log(this.props)
+        if(this.props.isLoading){
+            return(<div>Loading...</div>)
+        }
         let renderPost = this.props.posts.map(post => {
             return <div key={post._id}>
                 <h4>{post.title}</h4> by <p>{post.author} on {post.date}</p>
@@ -23,9 +27,6 @@ class PostList extends React.Component {
                 <hr/>
             </div>
         })
-        if(!this.props.posts.length){
-            return(<div>Loading...</div>)
-        }
         return (<div className="">
             {renderPost}
         </div>
@@ -37,7 +38,9 @@ class PostList extends React.Component {
 const mapStateToProps = (state) => {
     console.log(state)
     return {
-        posts: state.posts
+        posts: state.posts.posts,
+        isLoading: state.posts.isLoading,
+        isError: state.posts.isError
     }
 }
 

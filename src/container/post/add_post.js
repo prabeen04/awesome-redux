@@ -97,6 +97,7 @@ class AddPost extends Component {
                             <div className="post-input">
                                 <Field name="title" label="Post Title" component={this.renderField} />
                             </div>
+                            <br />
                             <div className="post-input">
                                 <Field name="body" label="Your Story" component={this.renderTextarea} style={{ width: '100%' }} />
                             </div>

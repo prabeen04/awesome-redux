@@ -3,7 +3,12 @@ import {
     ADD_POST
 } from '../constants/posts_actiontypes';
 
-export const postReducer = (state =[], action) => {
+const initialState = {
+    isLoading: true,
+    isError: false,
+    posts: []
+}
+export const postReducer = (state = initialState, action) => {
     switch (action.type){
         case GET_POSTS:
         return [...state, ...action.payload ];
