@@ -7,4 +7,6 @@ export const ADD_POST_FAILURE = 'ADD_POST_FAILURE';
 export const VIEW_POST = 'VIEW_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const DELETE_POST = 'DELETE_POST';
+export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
+export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE';
 
