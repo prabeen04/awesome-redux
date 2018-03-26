@@ -26,3 +26,19 @@ export const getTodos = () => {
     //     payload: request
     // })
 }
+
+export const deleteTodo = (todo_id) => {
+    console.log(todo_id)
+    return (dispatch) => {
+        dispatch({
+            type: DELETE_POST
+        })
+        return axios.delete(`${baseURL}/${todo_id}`,{todo_id})
+            .then(response => {
+                dispatch(getTodos())
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+}
