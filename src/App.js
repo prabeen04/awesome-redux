@@ -18,6 +18,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/posts" component={Posts} />
+          <Route exact path="/todo" component={Todo} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
