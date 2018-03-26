@@ -9,7 +9,7 @@ export const rootReducer = combineReducers({
     users: userReducer,
     selectedUser: selectedReducer,
     posts: postReducer,
-    todos: toduReducer
+    todos: todoReducer
 })
 
 export default rootReducer;
