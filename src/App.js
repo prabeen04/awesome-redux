@@ -6,6 +6,7 @@ import { addUser } from './actions/user_action';
 import Navbar from './components/layouts/navbar/navbar';
 import Dashboard from './container/dashboard/dashboard';
 import Posts from './container/post/post';
+import Todo from './container/todo/todo';
 import NotFound from './container/notfound/notfound';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
