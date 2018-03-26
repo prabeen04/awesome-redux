@@ -37,7 +37,7 @@ const NavMenu = (props) => (
           leftIcon={<i className="material-icons">account_box</i>} 
           containerElement={<Link to="/posts" />}/>
         <MenuItem onClick={props.handleToggle} 
-          primaryText="TO DO" 
+          primaryText="Todo" 
           leftIcon={<i className="material-icons">account_box</i>} 
           containerElement={<Link to="/todo" />}/>
       </Menu>
