@@ -1,4 +1,5 @@
 import { GET_TODOS, GET_TODOS_SUCCESS, GET_TODOS_FAILURE, ADD_TODO, DELETE_TODO, EDIT_TODO } from '../constants/todo_actiontypes';
+import axios from 'axios';
 
 const todoUrl = 'https://prabeen-restapi.herokuapp.com/api/todo';
 
@@ -7,7 +8,7 @@ export const getTodos = () => {
         dispatch({
             type: GET_TODOS
         })
-        return axios.get(`${baseURL}`)
+        return axios.get(`${todoUrl}`)
             .then(response => {
                 dispatch({
                     type: GET_TODOS_SUCCESS,
@@ -20,7 +21,7 @@ export const getTodos = () => {
                 })
             });
     }
-    // let request = axios.get(baseURL);
+    // let request = axios.get(todoUrl);
     // return ({
     //     type: GET_POSTS,
     //     payload: request
@@ -31,9 +32,9 @@ export const deleteTodo = (todo_id) => {
     console.log(todo_id)
     return (dispatch) => {
         dispatch({
-            type: DELETE_POST
+            type: DELETE_TODO
         })
-        return axios.delete(`${baseURL}/${todo_id}`,{todo_id})
+        return axios.delete(`${todoUrl}/${todo_id}`,{todo_id})
             .then(response => {
                 dispatch(getTodos())
             })
