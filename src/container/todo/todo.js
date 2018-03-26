@@ -6,7 +6,7 @@ class Todo extends Component {
     constructor(props){
         super(props)
     }
-    
+
   render() {
     return (
       <div>
@@ -14,5 +14,18 @@ class Todo extends Component {
       </div>
     )
   }
+}
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        totos: state.todos
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        getTodos: getTodos,
+        deleteTodo: deleteTodo
+    }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Todo);
